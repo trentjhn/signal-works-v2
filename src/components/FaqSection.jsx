@@ -131,7 +131,7 @@ const FaqSection = () => {
           />
 
           <p className="text-lg text-white/50 font-light leading-relaxed scroll-reveal delay-200">
-            Code lives in your repo. Deploys to your infrastructure. Documented, tested, and yours to redeploy or modify with us or without us. We do not lock anyone in.
+            Code lives in your repository. Deploys to your infrastructure. Documented and handed off so your team can operate it. Most clients keep us on as their ongoing AI department; the work is yours either way.
           </p>
         </div>
       </div>
