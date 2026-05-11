@@ -1,0 +1,28 @@
+import React from 'react'
+import UnicornScene from 'unicornstudio-react'
+
+const UnicornBackground = () => {
+  return (
+    <>
+      {/* Ambient Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#0e0725] via-[#050211] to-black"></div>
+        <div className="absolute top-[-10%] right-[-10%] w-[600px] lg:w-[900px] h-[600px] lg:h-[900px] bg-purple-900/10 rounded-full blur-[80px] lg:blur-[120px]"></div>
+        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] lg:w-[700px] h-[500px] lg:h-[700px] bg-indigo-900/10 rounded-full blur-[80px] lg:blur-[120px]"></div>
+      </div>
+
+      {/* Unicorn Studio Masked Background */}
+      <div 
+        className="aura-background-component top-0 w-full h-screen z-10 saturate-0 pointer-events-none mix-blend-screen fixed" 
+        data-alpha-mask="80" 
+        style={{ maskImage: "linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)", WebkitMaskImage: "linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)" }}
+      >
+        <div className="aura-background-component top-0 w-full -z-10 absolute h-full">
+           <UnicornScene projectId="8G9qTlSBPboaCMb8UV64" sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js" className="absolute w-full h-full left-0 top-0 -z-10" />
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default UnicornBackground
