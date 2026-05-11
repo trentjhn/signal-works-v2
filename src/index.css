@@ -15,7 +15,10 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  animation: body-fade-in 400ms ease-out;
+  /* Body starts hidden, holds for 150ms (so Inter font + WebGL canvas have time to mount),
+     then fades in over 500ms. Prevents the FOUC where text appears in fallback font on a
+     flat background, then visibly snaps to Inter + WebGL bg. */
+  animation: body-fade-in 500ms ease-out 150ms both;
 }
 
 @keyframes body-fade-in {
