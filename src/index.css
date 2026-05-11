@@ -13,8 +13,18 @@
   --gy-3: 94vh;
 }
 
-body { 
-  font-family: 'Inter', sans-serif; 
+body {
+  font-family: 'Inter', sans-serif;
+  animation: body-fade-in 400ms ease-out;
+}
+
+@keyframes body-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body { animation: none; }
 }
 
 /* Grid & Markers */
