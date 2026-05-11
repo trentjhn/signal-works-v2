@@ -9,7 +9,7 @@ import React, { useEffect, useRef } from 'react'
 // keeps state in one place — the DOM scrollLeft — which both auto and manual update.
 //
 // Children render twice (passed in once, duplicated internally) for the seamless wrap.
-const SwipeableMarquee = ({ children, speed = 0.3, briefPauseMs = 800, className = '' }) => {
+const SwipeableMarquee = ({ children, speed = 0.3, mobileSpeed = null, briefPauseMs = 800, className = '' }) => {
   const scrollRef = useRef(null)
   const rafRef = useRef(null)
   const lastTimestampRef = useRef(null)
@@ -27,6 +27,11 @@ const SwipeableMarquee = ({ children, speed = 0.3, briefPauseMs = 800, className
 
     if (reduceMotion) return
 
+    // Mobile devices need a higher px/ms speed to read as "moving" — small viewports mean
+    // visible-pixel distance per second feels slower at the same speed value.
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+    const effectiveSpeed = isMobile && mobileSpeed !== null ? mobileSpeed : speed
+
     const tick = (timestamp) => {
       if (lastTimestampRef.current === null) lastTimestampRef.current = timestamp
       const delta = timestamp - lastTimestampRef.current
@@ -35,7 +40,7 @@ const SwipeableMarquee = ({ children, speed = 0.3, briefPauseMs = 800, className
       const el = scrollRef.current
       if (el && !interactingRef.current) {
         const halfWidth = el.scrollWidth / 2
-        let next = el.scrollLeft + speed * delta
+        let next = el.scrollLeft + effectiveSpeed * delta
         if (next >= halfWidth) next -= halfWidth
         el.scrollLeft = next
       }
@@ -46,7 +51,7 @@ const SwipeableMarquee = ({ children, speed = 0.3, briefPauseMs = 800, className
       if (rafRef.current) cancelAnimationFrame(rafRef.current)
       lastTimestampRef.current = null
     }
-  }, [speed])
+  }, [speed, mobileSpeed])
 
   const markInteracting = () => {
     interactingRef.current = true

@@ -11,14 +11,23 @@ const UnicornBackground = () => {
         <div className="absolute bottom-[-10%] left-[-10%] w-[500px] lg:w-[700px] h-[500px] lg:h-[700px] bg-indigo-900/10 rounded-full blur-[80px] lg:blur-[120px]"></div>
       </div>
 
-      {/* Unicorn Studio Masked Background */}
-      <div 
-        className="aura-background-component top-0 w-full h-screen z-10 saturate-0 pointer-events-none mix-blend-screen fixed" 
-        data-alpha-mask="80" 
+      {/* Unicorn Studio Masked Background.
+          On mobile, the scene's circular animation lives off the right edge of the viewport
+          (the scene was composed for desktop aspect ratios). We scale the container 1.6x and
+          shift it so the circle moves into the mobile frame. Desktop renders at natural size. */}
+      <div
+        className="aura-background-component top-0 w-full h-screen z-10 saturate-0 pointer-events-none mix-blend-screen fixed"
+        data-alpha-mask="80"
         style={{ maskImage: "linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)", WebkitMaskImage: "linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)" }}
       >
-        <div className="aura-background-component top-0 w-full -z-10 absolute h-full">
-           <UnicornScene projectId="8G9qTlSBPboaCMb8UV64" sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js" className="absolute w-full h-full left-0 top-0 -z-10" />
+        <div className="aura-background-component top-0 w-full -z-10 absolute h-full overflow-hidden">
+          <div className="absolute inset-0 origin-center scale-[1.6] -translate-x-[18%] md:scale-100 md:translate-x-0">
+            <UnicornScene
+              projectId="8G9qTlSBPboaCMb8UV64"
+              sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"
+              className="absolute w-full h-full left-0 top-0 -z-10"
+            />
+          </div>
         </div>
       </div>
     </>
