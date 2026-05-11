@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-// Letters-only scramble, resolves left-to-right with ease-out
-const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-const CYCLE_MS = 70 // char swap rate
+// Terminal-style scramble characters (hex + symbols + brackets) — reads as decryption, not typo
+const SCRAMBLE_CHARS = '01ABCDEF#@%&*<>{}[]|/\\!=+-'
+const CYCLE_MS = 90 // char swap rate, slightly slower for less flicker with denser visual symbols
 
 const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3)
 
-const useScramble = (text, { duration = 700, delay = 0, enabled = true } = {}) => {
+const useScramble = (text, { duration = 700, delay = 0, enabled = true, trigger = 0 } = {}) => {
   const [output, setOutput] = useState(enabled ? '' : text)
   const rafRef = useRef(null)
 
@@ -72,7 +72,7 @@ const useScramble = (text, { duration = 700, delay = 0, enabled = true } = {}) =
       if (rafRef.current) cancelAnimationFrame(rafRef.current)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [text, duration, delay, enabled])
+  }, [text, duration, delay, enabled, trigger])
 
   return output
 }
@@ -91,13 +91,45 @@ const Hero = () => {
 
   const enabled = !reduceMotion
 
-  // Staggered timing per spec:
-  // line 1: 0   -> 0.7s
-  // line 2: 0.6 -> 1.4s
-  // line 3: 1.3 -> 2.2s
+  // Initial reveal: staggered scramble of all three lines (0 → 2.2s).
+  // Ambient loop: "Automation that" stays still as the white anchor.
+  // "actually" + "gets built." re-scramble together as a unit on a steady metronome.
+  // Both fire on the same trigger, so the eye reads it as one synchronized motion, not two events.
+  const [pairTrigger, setPairTrigger] = useState(0)
+
+  useEffect(() => {
+    if (!enabled) return
+    const INITIAL_REVEAL_MS = 2400
+    const LOOP_INTERVAL_MS = 10000 // 10s between each pair re-scramble
+
+    let intervalId = null
+    const startTimeout = setTimeout(() => {
+      intervalId = setInterval(() => {
+        setPairTrigger((t) => t + 1)
+      }, LOOP_INTERVAL_MS)
+    }, INITIAL_REVEAL_MS + LOOP_INTERVAL_MS)
+
+    return () => {
+      clearTimeout(startTimeout)
+      if (intervalId !== null) clearInterval(intervalId)
+    }
+  }, [enabled])
+
+  // Initial reveal:  line1 @ 0ms,  line2 @ 600ms,  line3 @ 1300ms (staggered intro)
+  // Re-trigger loop: line2 @ 0ms,  line3 @ 1100ms (sequential, line3 starts AFTER line2 fully resolves)
   const line1 = useScramble('Automation that', { duration: 700, delay: 0, enabled })
-  const line2 = useScramble('actually', { duration: 800, delay: 600, enabled })
-  const line3 = useScramble('gets built.', { duration: 900, delay: 1300, enabled })
+  const line2 = useScramble('actually', {
+    duration: 1000,
+    delay: pairTrigger === 0 ? 600 : 0,
+    enabled,
+    trigger: pairTrigger,
+  })
+  const line3 = useScramble('gets built.', {
+    duration: 1200,
+    delay: pairTrigger === 0 ? 1300 : 1100,
+    enabled,
+    trigger: pairTrigger,
+  })
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -125,7 +157,7 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative w-full min-h-[calc(100vh-100px)] flex flex-col justify-between pt-16 md:pt-24 pb-12 px-6 lg:px-[6%] overflow-hidden">
+    <section className="relative w-full min-h-[calc(100vh-100px)] flex flex-col justify-between pt-6 md:pt-8 pb-12 px-6 lg:px-[6%] overflow-hidden">
       {/* Top eyebrow */}
       <div className="animate-reveal flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-white/50">
         <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -133,7 +165,7 @@ const Hero = () => {
       </div>
 
       {/* Main stacked headline */}
-      <div className="flex-1 flex items-center py-12 md:py-16">
+      <div className="flex-1 flex items-center py-8 md:py-10">
         <h1 className="font-semibold tracking-tighter leading-[0.9] text-[14vw] sm:text-[12vw] md:text-[10vw] lg:text-[9vw] xl:text-[8.5vw] 2xl:text-[8vw]">
           <span aria-label="Automation that" className="block text-white" style={{ fontVariantNumeric: 'tabular-nums' }}>
             {line1}
