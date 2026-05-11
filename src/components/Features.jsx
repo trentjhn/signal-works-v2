@@ -100,7 +100,7 @@ const Features = () => {
             <div className="relative z-10">
               <h3 className="text-lg font-medium text-white mb-3 tracking-tight">AI Search Visibility (AEO)</h3>
               <p className="text-sm text-white/50 font-light leading-relaxed">
-                Measure your brand across ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews. Then ship the fixes. Re-measure at T+30 to verify movement.
+                The search bar is moving inside AI assistants. Most businesses have not noticed yet. We measure your brand across ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews, ship the fixes, and re-measure at T+30 to verify movement.
               </p>
             </div>
           </FlashlightCard>
