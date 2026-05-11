@@ -166,26 +166,21 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Trusted-by marquee */}
+      {/* Trusted-by marquee — constrained, masked, restrained per SAKURA pattern */}
       <div ref={addToRefs} className="scroll-reveal delay-300 mt-16 lg:mt-20">
-        <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/40 mb-5 flex items-center gap-3">
+        <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/30 mb-5 flex items-center gap-3">
           <span className="w-8 h-px bg-white/20"></span>
           Trusted by
         </div>
-        <div
-          className="relative overflow-hidden marquee-mask group/marq"
-        >
-          <div className="flex w-max animate-marquee group-hover/marq:[animation-play-state:paused]" style={{ animationDuration: '35s' }}>
+        <div className="relative max-w-md lg:max-w-lg overflow-hidden marquee-mask group/marq" style={{ height: '40px' }}>
+          <div className="flex items-center w-max animate-marquee group-hover/marq:[animation-play-state:paused] gap-12">
             {[...marqueeLogos, ...marqueeLogos, ...marqueeLogos, ...marqueeLogos].map((name, idx) => (
-              <div
+              <span
                 key={idx}
-                className="flex items-center shrink-0 px-10 lg:px-14"
-                style={{ height: '40px' }}
+                className="text-white/40 hover:text-white/80 transition-colors font-medium tracking-tight text-sm whitespace-nowrap shrink-0"
               >
-                <span className="text-white/55 hover:text-white/90 transition-colors font-medium tracking-tight text-lg lg:text-xl whitespace-nowrap">
-                  {name}
-                </span>
-              </div>
+                {name}
+              </span>
             ))}
           </div>
         </div>
