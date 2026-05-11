@@ -1,8 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-// Terminal-style scramble characters (hex + symbols + brackets) — reads as decryption, not typo
-const SCRAMBLE_CHARS = '01ABCDEF#@%&*<>{}[]|/\\!=+-'
-const CYCLE_MS = 90 // char swap rate, slightly slower for less flicker with denser visual symbols
+// Hex-style scramble characters: narrow, near-uniform widths.
+// Wide symbols (@ # & < > { } [ ] | /) caused the line to expand past the container
+// during scramble, forcing a wrap on mobile and an ugly snap-back on resolve.
+// Restricting to hex digits + lowercase keeps every glyph narrow enough that the
+// scrambled string never exceeds the resolved string's width.
+const SCRAMBLE_CHARS = '0123456789abcdef'
+const CYCLE_MS = 90
 
 const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3)
 
@@ -180,13 +184,13 @@ const Hero = () => {
       {/* Main stacked headline */}
       <div className="flex-1 flex items-center py-8 md:py-10">
         <h1 className="font-semibold tracking-tighter leading-[0.9] text-[12vw] sm:text-[10.5vw] md:text-[9vw] lg:text-[7.5vw] xl:text-[7vw] 2xl:text-[6.5vw]">
-          <span aria-label="Automation that" className="block text-white" style={{ fontVariantNumeric: 'tabular-nums' }}>
+          <span aria-label="Automation that" className="block text-white whitespace-nowrap" style={{ fontVariantNumeric: 'tabular-nums' }}>
             {line1}
           </span>
-          <span aria-label="actually" className="block text-white/30" style={{ fontVariantNumeric: 'tabular-nums' }}>
+          <span aria-label="actually" className="block text-white/30 whitespace-nowrap" style={{ fontVariantNumeric: 'tabular-nums' }}>
             {line2}
           </span>
-          <span aria-label="gets built." className="block text-white" style={{ fontVariantNumeric: 'tabular-nums' }}>
+          <span aria-label="gets built." className="block text-white whitespace-nowrap" style={{ fontVariantNumeric: 'tabular-nums' }}>
             {line3}
           </span>
         </h1>
