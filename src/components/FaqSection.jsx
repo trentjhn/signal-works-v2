@@ -10,7 +10,7 @@ import SwipeableMarquee from './ui/SwipeableMarquee'
 
 const StatementCard = ({ children, accent = false }) => (
   <div
-    className={`backdrop-blur-md border border-white/5 p-5 rounded-sm hover:bg-white/[0.06] transition-all hover:-translate-y-1 group min-h-[180px] flex flex-col justify-between ${
+    className={`md:backdrop-blur-md border border-white/5 p-5 rounded-sm hover:bg-white/[0.06] transition-all hover:-translate-y-1 group min-h-[180px] flex flex-col justify-between ${
       accent ? 'bg-gradient-to-br from-purple-900/20 to-transparent border-purple-500/20' : 'bg-white/[0.03]'
     }`}
   >
@@ -23,7 +23,7 @@ const StatementCard = ({ children, accent = false }) => (
 
 // numericValue is the integer to count up to. value (string) optional override; falls back to numericValue+suffix.
 const StatCard = ({ numericValue, suffix = '', prefix = '', label }) => (
-  <div className="bg-white/[0.03] backdrop-blur-md border border-white/5 p-5 rounded-sm flex items-center gap-4 hover:bg-white/[0.06] transition-all min-h-[90px]">
+  <div className="bg-white/[0.03] md:backdrop-blur-md border border-white/5 p-5 rounded-sm flex items-center gap-4 hover:bg-white/[0.06] transition-all min-h-[90px]">
     <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 shrink-0">
       <iconify-icon icon="solar:graph-new-up-bold-duotone" class="text-xl"></iconify-icon>
     </div>
@@ -108,7 +108,7 @@ const FaqSection = () => {
       <div className="relative z-10 px-6 lg:px-[6%] max-w-[1600px] mx-auto">
         {/* Swipeable floating columns. Auto-scrolls; pauses on hover; users can swipe,
             trackpad-scroll, or click prev/next arrows to step through manually. */}
-        <SwipeableMarquee className="mb-16 lg:mb-20" speed={0.04}>
+        <SwipeableMarquee className="mb-16 lg:mb-20" speed={0.04} mobileSpeed={0.12}>
           <Column1 />
           <Column2 />
           <Column3 />
