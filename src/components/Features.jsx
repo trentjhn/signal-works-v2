@@ -24,10 +24,10 @@ const Features = () => {
         
         {/* Section Header */}
         <div className="mb-20 lg:mb-24 max-w-4xl">
-          <h2 className="lg:text-8xl text-4xl font-normal text-white tracking-tight mb-8 animate-reveal">
+          <h2 className="lg:text-8xl text-4xl font-normal text-white tracking-tight mb-8 scroll-reveal">
             What we <span className="text-white/30">build.</span>
           </h2>
-          <div className="animate-reveal delay-100">
+          <div className="scroll-reveal delay-100">
             <p className="text-lg text-white/60 font-light leading-relaxed max-w-2xl">
               Custom AI engineering for businesses that need it built right, not demoed well. Every engagement ships in your infrastructure with documentation and team training.
             </p>
@@ -38,7 +38,7 @@ const Features = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 gap-x-6 gap-y-6">
 
           {/* Card 1 */}
-          <FlashlightCard className="animate-reveal delay-200 col-span-1 lg:col-span-2 hover:bg-white/[0.04] transition-all duration-500 flex flex-col hover:border-white/10 h-full border-white/5 border rounded-sm pt-8 pr-8 pb-8 pl-8 relative backdrop-blur-lg justify-between overflow-hidden">
+          <FlashlightCard className="scroll-reveal delay-200 col-span-1 lg:col-span-2 hover:bg-white/[0.04] transition-all duration-500 flex flex-col hover:border-white/10 h-full border-white/5 border rounded-sm pt-8 pr-8 pb-8 pl-8 relative backdrop-blur-lg justify-between overflow-hidden">
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%)', zIndex: 0 }}></div>
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%)', zIndex: 0, WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', padding: '1px' }}></div>
             
@@ -67,7 +67,7 @@ const Features = () => {
           </FlashlightCard>
 
           {/* Card 2 */}
-          <FlashlightCard className="animate-reveal delay-300 col-span-1 lg:col-span-2 hover:bg-white/[0.04] transition-all duration-500 flex flex-col hover:border-white/10 h-full border-white/5 border rounded-sm pt-8 pr-8 pb-8 pl-8 relative backdrop-blur-lg justify-between overflow-hidden">
+          <FlashlightCard className="scroll-reveal delay-300 col-span-1 lg:col-span-2 hover:bg-white/[0.04] transition-all duration-500 flex flex-col hover:border-white/10 h-full border-white/5 border rounded-sm pt-8 pr-8 pb-8 pl-8 relative backdrop-blur-lg justify-between overflow-hidden">
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%)', zIndex: 0 }}></div>
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%)', zIndex: 0, WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', padding: '1px' }}></div>
             
@@ -89,7 +89,7 @@ const Features = () => {
           </FlashlightCard>
 
           {/* Card 3 */}
-          <FlashlightCard className="animate-reveal delay-500 col-span-1 lg:col-span-2 hover:bg-white/[0.04] transition-all duration-500 flex flex-col hover:border-white/10 h-full border-white/5 border rounded-sm pt-8 pr-8 pb-8 pl-8 relative backdrop-blur-lg justify-between overflow-hidden">
+          <FlashlightCard className="scroll-reveal delay-500 col-span-1 lg:col-span-2 hover:bg-white/[0.04] transition-all duration-500 flex flex-col hover:border-white/10 h-full border-white/5 border rounded-sm pt-8 pr-8 pb-8 pl-8 relative backdrop-blur-lg justify-between overflow-hidden">
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%)', zIndex: 0 }}></div>
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%)', zIndex: 0, WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', padding: '1px' }}></div>
 
@@ -106,7 +106,7 @@ const Features = () => {
           </FlashlightCard>
 
           {/* Card 4 */}
-          <FlashlightCard className="animate-reveal delay-200 col-span-1 lg:col-span-3 hover:bg-white/[0.04] transition-all duration-500 flex flex-col min-h-[320px] hover:border-white/10 border-white/5 border rounded-sm pt-8 pr-8 pb-8 pl-8 relative backdrop-blur-lg justify-between overflow-hidden">
+          <FlashlightCard className="scroll-reveal delay-200 col-span-1 lg:col-span-3 hover:bg-white/[0.04] transition-all duration-500 flex flex-col min-h-[320px] hover:border-white/10 border-white/5 border rounded-sm pt-8 pr-8 pb-8 pl-8 relative backdrop-blur-lg justify-between overflow-hidden">
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%)', zIndex: 0 }}></div>
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%)', zIndex: 0, WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', padding: '1px' }}></div>
 
@@ -122,7 +122,7 @@ const Features = () => {
           </FlashlightCard>
 
           {/* Card 5 */}
-          <FlashlightCard className="animate-reveal delay-300 col-span-1 lg:col-span-3 hover:bg-white/[0.04] transition-all duration-500 flex flex-col min-h-[320px] hover:border-white/10 border-white/5 border rounded-sm pt-8 pr-8 pb-8 pl-8 relative backdrop-blur-lg justify-between overflow-hidden">
+          <FlashlightCard className="scroll-reveal delay-300 col-span-1 lg:col-span-3 hover:bg-white/[0.04] transition-all duration-500 flex flex-col min-h-[320px] hover:border-white/10 border-white/5 border rounded-sm pt-8 pr-8 pb-8 pl-8 relative backdrop-blur-lg justify-between overflow-hidden">
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%)', zIndex: 0 }}></div>
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%)', zIndex: 0, WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', padding: '1px' }}></div>
 

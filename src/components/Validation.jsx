@@ -49,7 +49,7 @@ const Validation = ({ showCta = true }) => {
 
         {/* Section Header */}
         <div className="max-w-4xl mb-16 lg:mb-20">
-          <h2 className="leading-[0.95] lg:text-7xl text-4xl font-medium text-white tracking-tighter animate-reveal">
+          <h2 className="leading-[0.95] lg:text-7xl text-4xl font-medium text-white tracking-tighter scroll-reveal">
             What every engagement
             <span className="text-white/30"> includes.</span>
           </h2>
@@ -60,8 +60,8 @@ const Validation = ({ showCta = true }) => {
           {deliverables.map((d, idx) => (
             <FlashlightCard
               key={idx}
-              className={`hover:bg-white/[0.04] transition-all duration-500 border border-white/5 hover:border-white/10 rounded-sm backdrop-blur-lg p-8 lg:p-10 relative overflow-hidden flex flex-col min-h-[320px] animate-reveal`}
-              style={{ animationDelay: `${idx * 0.1}s` }}
+              className={`hover:bg-white/[0.04] transition-all duration-500 border border-white/5 hover:border-white/10 rounded-sm backdrop-blur-lg p-8 lg:p-10 relative overflow-hidden flex flex-col min-h-[320px] scroll-reveal`}
+              style={{ transitionDelay: `${idx * 0.1}s` }}
             >
               <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%)', zIndex: 0 }}></div>
               <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%)', zIndex: 0, WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', padding: '1px' }}></div>
