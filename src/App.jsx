@@ -10,6 +10,7 @@ import FaqSection from './components/FaqSection'
 import FinalCta from './components/FinalCta'
 import Footer from './components/Footer'
 import SectionDivider from './components/ui/SectionDivider'
+import AeoCallout from './components/AeoCallout'
 
 // Global scroll-reveal observer: watches every .scroll-reveal element on the page
 // and adds .is-visible when it enters the viewport. Each element fires its CSS
@@ -50,6 +51,9 @@ function App() {
           {/* 1. Hero with marquee */}
           <Hero />
           <SectionDivider duration={9} />
+          {/* 1.5 AEO interlude — strongest line from the old site, breakout treatment */}
+          <AeoCallout />
+          <SectionDivider delay={1.5} duration={10} />
           {/* 2. Services bento — Services nav target */}
           <div id="services" className="scroll-mt-[100px]">
             <Features />
