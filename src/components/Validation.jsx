@@ -96,7 +96,7 @@ const Validation = ({ showCta = true }) => {
               <p className="text-white/50 text-base font-light">A 30-minute call is enough to know if we are a fit.</p>
             </div>
 
-            <a href="#book" className="relative z-10 bg-white text-black pl-8 pr-6 py-4 rounded-sm font-semibold text-xs uppercase tracking-widest hover:bg-purple-50 transition-all transform flex items-center gap-4 group/btn">
+            <a href="https://calendly.com/hello-signalworks" target="_blank" rel="noopener noreferrer" className="relative z-10 bg-white text-black pl-8 pr-6 py-4 rounded-sm font-semibold text-xs uppercase tracking-widest hover:bg-purple-50 transition-all transform flex items-center gap-4 group/btn">
               Book an intro call
               <div className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center group-hover/btn:scale-110 transition-transform">
                 <iconify-icon icon="solar:arrow-right-bold-duotone" class="text-sm"></iconify-icon>

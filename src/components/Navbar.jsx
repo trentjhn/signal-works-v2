@@ -60,7 +60,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <a href="#book" className="group relative hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-white text-black py-2.5 px-5 rounded-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_24px_-6px_rgba(168,85,247,0.6)] hover:-translate-y-0.5">
+          <a href="https://calendly.com/hello-signalworks" target="_blank" rel="noopener noreferrer" className="group relative hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-white text-black py-2.5 px-5 rounded-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_24px_-6px_rgba(168,85,247,0.6)] hover:-translate-y-0.5">
             <span className="absolute inset-0 bg-gradient-to-r from-purple-200 via-purple-100 to-purple-200 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" aria-hidden="true"></span>
             <span className="relative">Book an intro call</span>
           </a>
@@ -91,7 +91,7 @@ const Navbar = () => {
             <a href="#book" onClick={() => setMobileMenuOpen(false)} className="hover:text-purple-400 transition-colors border-b border-white/10 pb-4">Book</a>
           </nav>
           <div className="mt-auto mb-12">
-            <a href="#book" onClick={() => setMobileMenuOpen(false)} className="flex w-full items-center justify-center gap-2 text-sm font-bold uppercase tracking-wider bg-white text-black py-4 rounded-sm hover:bg-purple-50 transition-colors">
+            <a href="https://calendly.com/hello-signalworks" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="flex w-full items-center justify-center gap-2 text-sm font-bold uppercase tracking-wider bg-white text-black py-4 rounded-sm hover:bg-purple-50 transition-colors">
               Book an intro call
             </a>
           </div>
