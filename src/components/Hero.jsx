@@ -6,8 +6,21 @@ const CYCLE_MS = 90 // char swap rate, slightly slower for less flicker with den
 
 const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3)
 
+// Pre-fill output with same-length scrambled characters so the headline reserves its full
+// footprint immediately on mount. Without this, the h1 starts empty and the layout below
+// (paragraph, CTA, marquee) gets pushed down as characters resolve in.
+const buildInitialScramble = (text) => {
+  let s = ''
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i]
+    if (ch === ' ' || ch === '.' || ch === ',') s += ch
+    else s += SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]
+  }
+  return s
+}
+
 const useScramble = (text, { duration = 700, delay = 0, enabled = true, trigger = 0 } = {}) => {
-  const [output, setOutput] = useState(enabled ? '' : text)
+  const [output, setOutput] = useState(() => enabled ? buildInitialScramble(text) : text)
   const rafRef = useRef(null)
 
   useEffect(() => {
@@ -77,7 +90,7 @@ const useScramble = (text, { duration = 700, delay = 0, enabled = true, trigger 
   return output
 }
 
-const marqueeLogos = ['Casa Mate', 'MyHR Specialist', 'Gusdorf Marketing Group']
+const marqueeLogos = ['Casa Mate Tequila', 'MyHR Specialist', 'Gusdorf Marketing Group']
 
 const Hero = () => {
   const revealRefs = useRef([])
@@ -166,7 +179,7 @@ const Hero = () => {
 
       {/* Main stacked headline */}
       <div className="flex-1 flex items-center py-8 md:py-10">
-        <h1 className="font-semibold tracking-tighter leading-[0.9] text-[14vw] sm:text-[12vw] md:text-[10vw] lg:text-[9vw] xl:text-[8.5vw] 2xl:text-[8vw]">
+        <h1 className="font-semibold tracking-tighter leading-[0.9] text-[12vw] sm:text-[10.5vw] md:text-[9vw] lg:text-[7.5vw] xl:text-[7vw] 2xl:text-[6.5vw]">
           <span aria-label="Automation that" className="block text-white" style={{ fontVariantNumeric: 'tabular-nums' }}>
             {line1}
           </span>
@@ -179,33 +192,35 @@ const Hero = () => {
         </h1>
       </div>
 
-      {/* Bottom supporting content */}
+      {/* Bottom row: paragraph + CTA */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
         <div ref={addToRefs} className="scroll-reveal lg:col-span-5 xl:col-span-4">
           <p className="text-base md:text-lg text-white/60 leading-relaxed">
-            <span className="text-white">SignalWorks is your AI department,</span> sized to how you want to work. Two senior operators with backgrounds in PayPal infrastructure engineering and enterprise SaaS product strategy. We build the workflows you wish your AI tools did on their own.
+            <span className="text-white">SignalWorks is your AI department,</span> sized to how you want to work. We build the workflows you wish your AI tools did on their own.
           </p>
         </div>
 
         <div ref={addToRefs} className="scroll-reveal delay-200 lg:col-span-3 lg:col-start-9 xl:col-span-3 xl:col-start-10 flex lg:justify-end">
           <a
             href="#book"
-            className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-wider bg-white text-black py-4 px-6 rounded-sm hover:bg-purple-50 transition-colors"
+            className="group relative inline-flex items-center gap-3 text-xs font-bold uppercase tracking-wider bg-white text-black py-4 px-6 rounded-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_-8px_rgba(168,85,247,0.5)] hover:-translate-y-0.5"
           >
-            Book an intro call
-            <iconify-icon icon="solar:arrow-right-linear" class="text-base group-hover:translate-x-1 transition-transform"></iconify-icon>
+            {/* Sliding purple sheen on hover */}
+            <span className="absolute inset-0 bg-gradient-to-r from-purple-200 via-purple-100 to-purple-200 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" aria-hidden="true"></span>
+            <span className="relative">Book an intro call</span>
+            <iconify-icon icon="solar:arrow-right-linear" class="relative text-base group-hover:translate-x-1 transition-transform duration-300"></iconify-icon>
           </a>
         </div>
       </div>
 
-      {/* Trusted-by marquee — constrained, masked, restrained per SAKURA pattern */}
+      {/* Trusted-by marquee — original placement, below paragraph + CTA */}
       <div ref={addToRefs} className="scroll-reveal delay-300 mt-16 lg:mt-20">
         <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/30 mb-5 flex items-center gap-3">
           <span className="w-8 h-px bg-white/20"></span>
           Trusted by
         </div>
         <div className="relative max-w-md lg:max-w-lg overflow-hidden marquee-mask group/marq" style={{ height: '40px' }}>
-          <div className="flex items-center w-max animate-marquee group-hover/marq:[animation-play-state:paused] gap-12">
+          <div className="flex items-center w-max animate-marquee group-hover/marq:[animation-play-state:paused] gap-12" style={{ animationDuration: '60s' }}>
             {[...marqueeLogos, ...marqueeLogos, ...marqueeLogos, ...marqueeLogos].map((name, idx) => (
               <span
                 key={idx}
