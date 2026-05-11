@@ -1,6 +1,7 @@
 import React from 'react'
 import CountUp from './ui/CountUp'
 import SplitHeading from './ui/SplitHeading'
+import SwipeableMarquee from './ui/SwipeableMarquee'
 
 // Replaces aura's plain "What we believe" manifesto with the SAKURA floating-wall layout.
 // Cards contain SignalWorks brand statements (no fake names, no fake companies, no quotation marks).
@@ -83,16 +84,16 @@ const FaqSection = () => {
       <StatementCard>
         Two senior operators. No account managers, no junior staff, no offshore handoffs.
       </StatementCard>
-      <StatCard numericValue={100} suffix="%" label="Code owned by you" />
+      <StatCard numericValue={2} label="Senior operators" />
     </div>
   )
 
   const Column5 = () => (
     <div className="flex flex-col gap-6 mt-0 w-[300px] flex-shrink-0">
       <StatementCard accent>
-        Every build is yours. Code in your infrastructure, infrastructure-as-code, runbooks. Walk away with everything intact.
+        Builds ship in your infrastructure with documentation, infrastructure-as-code, and a handoff training session.
       </StatementCard>
-      <StatCard numericValue={100} suffix="%" label="Yours to keep" />
+      <StatCard numericValue={5} label="Service lines" />
     </div>
   )
 
@@ -105,28 +106,15 @@ const FaqSection = () => {
       </div>
 
       <div className="relative z-10 px-6 lg:px-[6%] max-w-[1600px] mx-auto">
-        {/* Floating columns marquee */}
-        <div
-          className="relative w-full overflow-hidden mb-20 lg:mb-24"
-          style={{
-            maskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
-          }}
-        >
-          <div className="flex w-max gap-6 animate-marquee-slow items-start">
-            <Column1 />
-            <Column2 />
-            <Column3 />
-            <Column4 />
-            <Column5 />
-            {/* Duplicate set for seamless infinite loop */}
-            <Column1 />
-            <Column2 />
-            <Column3 />
-            <Column4 />
-            <Column5 />
-          </div>
-        </div>
+        {/* Swipeable floating columns. Auto-scrolls; pauses on hover; users can swipe,
+            trackpad-scroll, or click prev/next arrows to step through manually. */}
+        <SwipeableMarquee className="mb-16 lg:mb-20" speed={0.04}>
+          <Column1 />
+          <Column2 />
+          <Column3 />
+          <Column4 />
+          <Column5 />
+        </SwipeableMarquee>
 
         {/* Bottom: pill + headline + subhead */}
         <div className="relative z-20 text-center max-w-3xl mx-auto">

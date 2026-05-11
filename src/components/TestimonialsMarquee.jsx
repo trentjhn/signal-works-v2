@@ -89,7 +89,7 @@ const TestimonialsMarquee = () => {
 
         {/* Single closing line */}
         <p className="text-base lg:text-lg text-white/50 font-light text-center max-w-3xl mx-auto scroll-reveal delay-500">
-          No account managers. No junior staff. No offshore handoffs. The senior people on the sales call are the ones doing the work.
+          The senior people on the sales call are the ones building your system.
         </p>
       </div>
     </section>

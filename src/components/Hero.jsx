@@ -90,7 +90,7 @@ const useScramble = (text, { duration = 700, delay = 0, enabled = true, trigger 
   return output
 }
 
-const marqueeLogos = ['Casa Mate Tequila', 'MyHR Specialist', 'Gusdorf Marketing Group']
+const marqueeLogos = ['Casa Mate Tequila', 'LA Metro', 'WriterBoyFilms', 'Gusdorf Marketing Group']
 
 const Hero = () => {
   const revealRefs = useRef([])
@@ -170,7 +170,7 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative w-full min-h-[calc(100vh-100px)] flex flex-col justify-between pt-6 md:pt-8 pb-12 px-6 lg:px-[6%] overflow-hidden">
+    <section className="relative w-full min-h-screen flex flex-col justify-between pt-[120px] md:pt-[130px] pb-12 px-6 lg:px-[6%] overflow-hidden">
       {/* Top eyebrow */}
       <div className="animate-reveal flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-white/50">
         <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>

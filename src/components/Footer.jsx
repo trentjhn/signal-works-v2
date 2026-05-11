@@ -45,12 +45,6 @@ const Footer = () => {
                   signalworks.live
                 </a>
               </li>
-              <li>
-                <a href="https://www.linkedin.com/company/signalworksai" target="_blank" rel="noopener noreferrer" className="text-sm text-white/70 hover:text-white transition-colors inline-flex items-center gap-2">
-                  <iconify-icon icon="simple-icons:linkedin" class="text-base text-white/40"></iconify-icon>
-                  LinkedIn
-                </a>
-              </li>
             </ul>
           </div>
 
