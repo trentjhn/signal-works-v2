@@ -55,7 +55,7 @@ const FaqSection = () => {
   const Column1 = () => (
     <div className="flex flex-col gap-6 mt-0 w-[300px] flex-shrink-0">
       <StatementCard>
-        The search bar is moving inside AI assistants. Most businesses have not noticed yet.
+        Every recommendation we make is backed by current research, not yesterday&apos;s playbook. Keeping up with AI is a full-time job. That&apos;s the work we take off your plate.
       </StatementCard>
       <StatCard numericValue={5} label="AI engines tracked" />
     </div>
