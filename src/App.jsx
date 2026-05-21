@@ -4,6 +4,7 @@ import UnicornBackground from './components/UnicornBackground'
 import GlobalGrid from './components/GlobalGrid'
 import Hero from './components/Hero'
 import Features from './components/Features'
+import AeoFeature from './components/AeoFeature'
 import Validation from './components/Validation'
 import TestimonialsMarquee from './components/TestimonialsMarquee'
 import FaqSection from './components/FaqSection'
@@ -54,11 +55,15 @@ function App() {
           {/* 1.5 AEO interlude — strongest line from the old site, breakout treatment */}
           <AeoCallout />
           <SectionDivider delay={1.5} duration={10} />
-          {/* 2. Services bento — Services nav target */}
+          {/* 2. Featured offering: AI Search Visibility — Services nav target */}
           <div id="services" className="scroll-mt-[100px]">
-            <Features />
+            <AeoFeature />
           </div>
+          <SectionDivider delay={0.5} duration={10} />
+          {/* 2.5 Bento menu — everything else (AEO card swapped for Knowledge Systems) */}
+          <Features />
           <SectionDivider delay={2} duration={11} />
+          {/* Bento carries the full menu; AEO is featured separately above. */}
           {/* 3. What every engagement includes — Process nav target */}
           <div id="process" className="scroll-mt-[100px]">
             <Validation showCta={false} />
