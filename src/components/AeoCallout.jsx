@@ -15,7 +15,7 @@ const AeoCallout = () => {
         {/* Eyebrow label */}
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm mb-10 scroll-reveal">
           <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
-          <span className="text-[10px] font-mono uppercase tracking-widest text-white/70">What we do</span>
+          <span className="text-[10px] font-mono uppercase tracking-widest text-white/70">Why we exist</span>
         </div>
 
         {/* Four-line stacked headline. Each phrase is its own row via `block` so wrapping

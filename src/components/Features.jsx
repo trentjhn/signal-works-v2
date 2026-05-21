@@ -83,7 +83,7 @@ const Features = () => {
             <div className="relative z-10">
               <h3 className="text-lg font-medium text-white mb-3 tracking-tight">AI Tooling Setup</h3>
               <p className="text-sm text-white/50 font-light leading-relaxed">
-                Custom GPTs, Claude Projects, voice agents, prompt libraries, and team training. For teams that already have AI tools but aren't getting full value out of them.
+                Custom GPTs, tool and data integrations, agents, prompt libraries, and team training. For teams that already have AI tools but aren't getting full value out of them.
               </p>
             </div>
           </FlashlightCard>
@@ -95,12 +95,12 @@ const Features = () => {
 
             <div className="h-48 mb-8 relative flex items-center justify-center overflow-hidden z-10">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
-              <iconify-icon icon="solar:widget-2-bold-duotone" class="text-6xl text-white/20 group-hover:text-purple-400/80 transition-colors duration-500"></iconify-icon>
+              <iconify-icon icon="solar:library-bold-duotone" class="text-6xl text-white/20 group-hover:text-purple-400/80 transition-colors duration-500"></iconify-icon>
             </div>
             <div className="relative z-10">
-              <h3 className="text-lg font-medium text-white mb-3 tracking-tight">AI Search Visibility (AEO)</h3>
+              <h3 className="text-lg font-medium text-white mb-3 tracking-tight">Knowledge Systems</h3>
               <p className="text-sm text-white/50 font-light leading-relaxed">
-                The search bar is moving inside AI assistants. Most businesses have not noticed yet. We measure your brand across ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews, ship the fixes, and re-measure at T+30 to verify movement.
+                Your scattered docs, Slack, and drives turned into one searchable brain your team can just ask. Permission-aware, so the right people see the right answers, and nothing leaks.
               </p>
             </div>
           </FlashlightCard>
