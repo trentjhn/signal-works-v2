@@ -66,10 +66,9 @@ content depth, entity signals, and the Reddit/listing footprint do that.
 
 ## Known minor follow-ups (cosmetic, non-blocking)
 
-- CountUp stats render as `0` in static HTML (they animate from 0 client-side), so a
-  crawler reads "0 AI engines tracked" instead of "5". Fix: initialize CountUp's state to
-  the target value so the prerender shows the real number; animate on scroll. Small change,
-  not yet done.
+- ~~CountUp stats render as `0` in static HTML~~ — FIXED. CountUp now initializes to the
+  real value, so the prerender shows the true number (e.g. "5 AI engines tracked"); the
+  count-up animation replays from 0 on scroll.
 - ~~Scramble placeholder string in the prerendered hero~~ — FIXED (see Track 1).
 
 ## Verify locally

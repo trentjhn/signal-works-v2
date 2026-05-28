@@ -5,7 +5,10 @@ import React, { useEffect, useRef, useState } from 'react'
 // Fires once per mount, respects prefers-reduced-motion.
 const CountUp = ({ value, prefix = '', suffix = '', duration = 1400, className = '' }) => {
   const ref = useRef(null)
-  const [display, setDisplay] = useState(0)
+  // Initialize to the real value so the server prerender + first client paint show the
+  // true number (correct content for crawlers, and hydration matches). The count-up
+  // animation re-plays from 0 when the element scrolls into view on the client.
+  const [display, setDisplay] = useState(value)
   const startedRef = useRef(false)
 
   useEffect(() => {
