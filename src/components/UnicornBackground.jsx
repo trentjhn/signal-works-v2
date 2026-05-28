@@ -1,7 +1,22 @@
-import React from 'react'
-import UnicornScene from 'unicornstudio-react'
+import React, { useEffect, useState } from 'react'
 
 const UnicornBackground = () => {
+  // unicornstudio-react drives a WebGL scene and touches the DOM, so it cannot run
+  // during the server prerender. Load it only after mount on the client. The static
+  // gradient below renders server-side and paints immediately, so the page still
+  // looks finished even if the WebGL SDK is slow or fails to load.
+  const [Scene, setScene] = useState(null)
+
+  useEffect(() => {
+    let active = true
+    import('unicornstudio-react').then((mod) => {
+      if (active) setScene(() => mod.default)
+    })
+    return () => {
+      active = false
+    }
+  }, [])
+
   return (
     <>
       {/* Ambient Background */}
@@ -11,7 +26,7 @@ const UnicornBackground = () => {
         <div className="absolute bottom-[-10%] left-[-10%] w-[500px] lg:w-[700px] h-[500px] lg:h-[700px] bg-indigo-900/10 rounded-full blur-[80px] lg:blur-[120px]"></div>
       </div>
 
-      {/* Unicorn Studio Masked Background.
+      {/* Unicorn Studio Masked Background (client-only).
           On mobile, the scene's circular animation lives off the right edge of the viewport
           (the scene was composed for desktop aspect ratios). We scale the container 1.6x and
           shift it so the circle moves into the mobile frame. Desktop renders at natural size. */}
@@ -22,11 +37,13 @@ const UnicornBackground = () => {
       >
         <div className="aura-background-component top-0 w-full -z-10 absolute h-full overflow-hidden">
           <div className="absolute inset-0 origin-center scale-[1.6] -translate-x-[18%] md:scale-100 md:translate-x-0">
-            <UnicornScene
-              projectId="8G9qTlSBPboaCMb8UV64"
-              sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"
-              className="absolute w-full h-full left-0 top-0 -z-10"
-            />
+            {Scene && (
+              <Scene
+                projectId="8G9qTlSBPboaCMb8UV64"
+                sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"
+                className="absolute w-full h-full left-0 top-0 -z-10"
+              />
+            )}
           </div>
         </div>
       </div>

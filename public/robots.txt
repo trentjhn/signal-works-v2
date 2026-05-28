@@ -1,0 +1,25 @@
+# SignalWorks — we want to be read, indexed, and cited by search and AI engines.
+
+User-agent: *
+Allow: /
+
+# Answer engines / AI assistants — explicitly welcome (we optimize for these).
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.signalworks.live/sitemap.xml

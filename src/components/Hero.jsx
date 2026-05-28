@@ -10,21 +10,12 @@ const CYCLE_MS = 90
 
 const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3)
 
-// Pre-fill output with same-length scrambled characters so the headline reserves its full
-// footprint immediately on mount. Without this, the h1 starts empty and the layout below
-// (paragraph, CTA, marquee) gets pushed down as characters resolve in.
-const buildInitialScramble = (text) => {
-  let s = ''
-  for (let i = 0; i < text.length; i++) {
-    const ch = text[i]
-    if (ch === ' ' || ch === '.' || ch === ',') s += ch
-    else s += SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]
-  }
-  return s
-}
-
 const useScramble = (text, { duration = 700, delay = 0, enabled = true, trigger = 0 } = {}) => {
-  const [output, setOutput] = useState(() => enabled ? buildInitialScramble(text) : text)
+  // Initial render (server prerender + first client paint) is the real text, so the
+  // prerendered HTML matches on hydrate and the H1 carries real words for SEO/AEO. The
+  // scramble intro runs after mount via the effect below. Starting from the resolved text
+  // also reserves the headline's full footprint immediately, so layout doesn't shift.
+  const [output, setOutput] = useState(text)
   const rafRef = useRef(null)
 
   useEffect(() => {
