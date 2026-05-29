@@ -43,6 +43,10 @@ requires `react-router-dom` (this app has no router); `react-snap` is unmaintain
 
 - [x] `public/robots.txt` — allow all, explicitly welcome AI bots, link sitemap.
 - [x] `public/sitemap.xml` — homepage entry.
+- [x] JSON-LD structured data (Organization + WebSite, real founders, machine-readable
+      `dateModified`) added to `index.html` head. No FAQPage (FAQ section is beliefs, not
+      Q&A) and no `sameAs` (no public socials) — only asserted facts. Bump `dateModified`
+      on content changes.
 - [x] Canonical/OG/Twitter URLs aligned to `https://www.signalworks.live/` to match the
       current apex→www redirect (was pointing at the apex while the site forces www — a
       self-contradicting signal). **Decision:** www chosen because Vercel's primary domain
