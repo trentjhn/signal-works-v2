@@ -61,6 +61,18 @@ requires `react-router-dom` (this app has no router); `react-snap` is unmaintain
       2026-05-27 — likely transient, antivirus, or a DNS filter).
 - [ ] After deploy: submit `sitemap.xml` in Google Search Console; request indexing.
 
+## Track 3b — Performance (mobile) — DONE on this branch/main
+
+Live mobile Lighthouse was 55 (LCP 7.8s, TBT 430ms). Offenders: unoptimized team
+photos (~382KB combined) and the WebGL background (~360KB assets + GPU/CPU).
+
+- [x] Team photos recompressed + resized in place (sips, ~480px, q70): trent.jpg
+      182KB→33KB, jahleel.jpg 199KB→31KB. `src` unchanged, no markup edit.
+- [x] WebGL gated to desktop only (`UnicornBackground.jsx`): skipped on mobile,
+      reduced-motion, and data-saver — static gradient is the fallback. Desktop keeps it.
+- [x] Verified: local-build mobile Lighthouse 55→91 (TBT 430ms→0, LCP 7.8s→3.1s, CLS 0),
+      0 WebGL assets on mobile, WebGL still loads on desktop, 0 console errors.
+
 ## Track 4 — Then the AEO playbook
 
 Once crawlable + deployed, run the 7-layer playbook

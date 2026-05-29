@@ -8,6 +8,14 @@ const UnicornBackground = () => {
   const [Scene, setScene] = useState(null)
 
   useEffect(() => {
+    // Only load the WebGL scene where it earns its weight: desktop, motion allowed, not
+    // data-saver. Mobile and constrained clients keep the static gradient above. The WebGL
+    // is ~360KB of assets plus heavy GPU/CPU cost and was the main drag on mobile LCP/TBT.
+    const desktop = window.matchMedia('(min-width: 768px)').matches
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const saveData = navigator.connection?.saveData === true
+    if (!desktop || reduceMotion || saveData) return
+
     let active = true
     import('unicornstudio-react').then((mod) => {
       if (active) setScene(() => mod.default)
