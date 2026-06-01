@@ -29,10 +29,14 @@
     <meta name="twitter:description" content="Your AI department, sized to how you want to work. We build, deploy, and maintain custom AI systems for small businesses, founder-led brands, and agencies." />
     <meta name="twitter:image" content="https://www.signalworks.live/og-image.png" />
 
-    <!-- Structured data (JSON-LD): Organization + WebSite. Helps Google understand the entity
-         and gives AI engines a verifiable, machine-readable description. Bump dateModified when
-         the site's content changes. No FAQPage (the FAQ section is beliefs, not Q&A) and no
-         sameAs (no public social profiles) — only asserted facts. -->
+    <!-- Structured data (JSON-LD): Organization + WebSite + service catalog. Gives Google and
+         AI engines a verifiable, machine-readable description of the entity. sameAs,
+         disambiguatingDescription, and knowsAbout exist specifically to separate this SignalWorks
+         (the custom-AI engineering agency at signalworks.live) from same-named companies in
+         marketing, architecture, gaming, and workplace consulting. Service descriptions are kept
+         verbatim from the visible "What we build" section so the markup matches on-page content.
+         Bump dateModified on content changes; add LinkedIn / Crunchbase / Wikidata to sameAs as
+         those profiles are created (highest-leverage entity-disambiguation work, currently off-site). -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -42,14 +46,95 @@
           "@id": "https://www.signalworks.live/#organization",
           "name": "SignalWorks",
           "url": "https://www.signalworks.live/",
+          "slogan": "Automation that actually gets built.",
           "description": "Your AI department, sized to how you want to work. SignalWorks builds, deploys, and maintains custom AI systems for small businesses, founder-led brands, and agencies.",
+          "disambiguatingDescription": "A custom-AI engineering agency for small businesses, founder-led brands, and agencies. Distinct from other companies named SignalWorks in marketing, architecture, gaming, and workplace consulting.",
           "email": "hello@signalworks.live",
           "image": "https://www.signalworks.live/og-image.png",
           "logo": "https://www.signalworks.live/og-image.png",
+          "sameAs": [
+            "https://github.com/signalworks-hq"
+          ],
+          "knowsAbout": [
+            "Artificial intelligence automation",
+            "Custom AI software development",
+            "AI agents",
+            "Retrieval-augmented generation",
+            "Knowledge management systems",
+            "Answer engine optimization",
+            "AI search visibility",
+            "AI security and governance"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "hello@signalworks.live",
+            "contactType": "sales",
+            "availableLanguage": "English"
+          },
           "founder": [
             { "@type": "Person", "name": "Trenton Johnson", "jobTitle": "Co-founder", "alumniOf": "Yale University" },
             { "@type": "Person", "name": "Jahleel Heath", "jobTitle": "Co-founder" }
-          ]
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "SignalWorks services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI Automations",
+                  "description": "Background workflows that run quietly and produce structured output. Lead-gen pipelines, document generation, intent classification, content drafting, and meeting-to-action wiring.",
+                  "provider": { "@id": "https://www.signalworks.live/#organization" }
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI Tooling Setup",
+                  "description": "Custom GPTs, tool and data integrations, agents, prompt libraries, and team training. For teams that already have AI tools but aren't getting full value out of them.",
+                  "provider": { "@id": "https://www.signalworks.live/#organization" }
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Knowledge Systems",
+                  "description": "Your scattered docs, Slack, and drives turned into one searchable brain your team can just ask. Permission-aware, so the right people see the right answers, and nothing leaks.",
+                  "provider": { "@id": "https://www.signalworks.live/#organization" }
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Intelligence Systems & Custom Software",
+                  "description": "Multi-source monitoring with full dashboards. Governance trackers, competitive intelligence, custom agentic systems with backend integration, and bespoke web applications built around your specific workflow.",
+                  "provider": { "@id": "https://www.signalworks.live/#organization" }
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI Security & Governance",
+                  "description": "Security assessments of existing AI deployments. Vendor and contract audits. Internal AI usage policies. Compliance mapping for the regulations that apply to your industry.",
+                  "provider": { "@id": "https://www.signalworks.live/#organization" }
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI Search Visibility (AEO)",
+                  "description": "Answer engine optimization: measure whether your brand comes up in AI search for category queries, with a visibility baseline and mention-rate tracking across engines.",
+                  "provider": { "@id": "https://www.signalworks.live/#organization" }
+                }
+              }
+            ]
+          }
         },
         {
           "@type": "WebSite",
@@ -58,7 +143,7 @@
           "url": "https://www.signalworks.live/",
           "inLanguage": "en-US",
           "publisher": { "@id": "https://www.signalworks.live/#organization" },
-          "dateModified": "2026-05-28"
+          "dateModified": "2026-05-31"
         }
       ]
     }
