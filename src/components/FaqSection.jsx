@@ -82,9 +82,9 @@ const FaqSection = () => {
   const Column4 = () => (
     <div className="flex flex-col gap-6 mt-6 lg:mt-12 w-[300px] flex-shrink-0">
       <StatementCard>
-        Two senior operators. No account managers, no junior staff, no offshore handoffs.
+        Senior-led from first call to final handoff. The people who scope your build are the ones who build and ship it.
       </StatementCard>
-      <StatCard numericValue={2} label="Senior operators" />
+      <StatCard numericValue={100} suffix="%" label="Senior-built" />
     </div>
   )
 
