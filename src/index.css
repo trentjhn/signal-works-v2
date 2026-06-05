@@ -147,7 +147,7 @@ body {
   animation-play-state: paused;
 }
 
-/* Marquee fade mask (used by hero trusted-by strip) — matches SAKURA's 20% fade */
+/* Marquee fade mask (used by hero trusted-by strip) — a 20% edge fade */
 .marquee-mask {
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 // Splits a heading into individual words and reveals each with a staggered scroll-triggered
-// transition (translateY + opacity). Used for section headings to add SAKURA-style entrance.
+// transition (translateY + opacity). Used for section headings to add an entrance.
 // Pass `accentWords` (array of word indices) to render those words in the muted-gray treatment.
 const SplitHeading = ({
   text,

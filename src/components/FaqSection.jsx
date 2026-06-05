@@ -3,10 +3,10 @@ import CountUp from './ui/CountUp'
 import SplitHeading from './ui/SplitHeading'
 import SwipeableMarquee from './ui/SwipeableMarquee'
 
-// Replaces aura's plain "What we believe" manifesto with the SAKURA floating-wall layout.
+// A floating-wall manifesto layout.
 // Cards contain SignalWorks brand statements (no fake names, no fake companies, no quotation marks).
 // Visual structure (5 columns of cards with staggered offsets, horizontal marquee scroll, edge mask)
-// is lifted directly from SAKURA's TestimonialsMarquee.
+// reuses the TestimonialsMarquee pattern.
 
 const StatementCard = ({ children, accent = false }) => (
   <div
@@ -99,7 +99,7 @@ const FaqSection = () => {
 
   return (
     <section className="relative w-full py-24 lg:py-32 overflow-hidden z-20 border-t border-white/5">
-      {/* Ambient gradient + side rules to match SAKURA */}
+      {/* Ambient gradient + side rules */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
         <div className="absolute bottom-0 left-0 right-0 h-[400px] bg-gradient-to-t from-[#0a051e] via-[#0a051e]/80 to-transparent z-10"></div>
         <div className="absolute left-[6%] right-[6%] top-0 bottom-0 border-l border-r border-white/5 hidden lg:block"></div>
