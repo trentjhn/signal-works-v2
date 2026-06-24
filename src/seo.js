@@ -243,4 +243,44 @@ export const seoRoutes = [
       orgNode,
     ],
   },
+  {
+    path: '/approach',
+    title: 'Our Approach | Security-First AI Engineering | SignalWorks',
+    description:
+      'How SignalWorks builds AI so the horror stories do not happen to you: a five-layer production harness, a six-step build discipline, and the standards we build to (NIST AI RMF, OWASP LLM Top 10, ABA Rule 1.6, AICPA SSTS 1.4). You own the build.',
+    canonical: `${BASE}/approach`,
+    jsonLd: [
+      {
+        '@type': 'WebPage',
+        '@id': `${BASE}/approach/#webpage`,
+        url: `${BASE}/approach`,
+        name: 'Our Approach — Security-First AI Engineering',
+        description:
+          'SignalWorks’ security-first methodology: a five-layer production harness, a six-step build discipline, and the frameworks every build is held to.',
+        about: { '@id': ORG_ID },
+        isPartOf: { '@id': `${BASE}/#website` },
+      },
+      orgNode,
+    ],
+  },
+  {
+    path: '/work',
+    title: 'Our Work | Measured AI Results | SignalWorks',
+    description:
+      'Proof, not promises. SignalWorks measures its own brand the way it measures clients: entity recognition moved from 4% to 28% across AI engines in three weeks. Plus anonymized capability examples and the benchmarks that matter.',
+    canonical: `${BASE}/work`,
+    jsonLd: [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${BASE}/work/#webpage`,
+        url: `${BASE}/work`,
+        name: 'Our Work — Measured AI Results',
+        description:
+          'Measured results and anonymized capability examples from SignalWorks, reported with the same candor a client receives.',
+        about: { '@id': ORG_ID },
+        isPartOf: { '@id': `${BASE}/#website` },
+      },
+      orgNode,
+    ],
+  },
 ]

@@ -31,7 +31,7 @@ function AiAutomations() {
       />
 
       <Section title="What we automate" lede="The recurring, rules-and-judgment work that eats hours every week. Each automation is scoped to a specific job, not a generic chatbot bolted onto your stack.">
-        <CardGrid items={automate} />
+        <CardGrid items={automate} variant="balanced" />
       </Section>
 
       <Section title="How every automation ships" lede="Built for production, owned by you. The same handoff standard applies to every engagement.">

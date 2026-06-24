@@ -31,7 +31,7 @@ function AiAgencyLosAngeles() {
       />
 
       <Section title="What we do for LA businesses" lede="Your AI department, sized to how you want to work. Five service lines, all senior-built, all shipped in your infrastructure.">
-        <CardGrid items={services} />
+        <CardGrid items={services} variant="balanced" />
       </Section>
 
       <Section title="Why work with a local senior-led team" lede="The same people from the first call to the final handoff.">

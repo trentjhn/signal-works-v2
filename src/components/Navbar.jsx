@@ -111,8 +111,9 @@ const Navbar = () => {
             </button>
           </div>
 
+          <Link to="/work" className="hover:text-white transition-colors">Work</Link>
+          <Link to="/approach" className="hover:text-white transition-colors">Approach</Link>
           <Link to="/about" className="hover:text-white transition-colors">About</Link>
-          <Link to="/ai-agency-los-angeles" className="hover:text-white transition-colors">Los Angeles</Link>
         </div>
 
         <div className="flex items-center gap-4">
@@ -174,8 +175,9 @@ const Navbar = () => {
 
           <div className="h-px bg-white/10 mb-8" />
           <nav className="flex flex-col gap-5 text-xl font-medium tracking-tight">
+            <Link to="/work" className="hover:text-purple-400 transition-colors">Work</Link>
+            <Link to="/approach" className="hover:text-purple-400 transition-colors">Approach</Link>
             <Link to="/about" className="hover:text-purple-400 transition-colors">About</Link>
-            <Link to="/ai-agency-los-angeles" className="hover:text-purple-400 transition-colors">Los Angeles</Link>
           </nav>
 
           <div className="mt-auto py-12">

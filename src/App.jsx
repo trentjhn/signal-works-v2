@@ -9,6 +9,8 @@ import AiSecurityGovernance from './pages/AiSecurityGovernance'
 import AiSearchVisibility from './pages/AiSearchVisibility'
 import AiAgencyLosAngeles from './pages/AiAgencyLosAngeles'
 import About from './pages/About'
+import Approach from './pages/Approach'
+import Work from './pages/Work'
 
 // Multi-page router. Every route renders inside the shared <Layout> (background,
 // navbar, footer) via nested routes, so the chrome persists across client navigation.
@@ -25,6 +27,8 @@ function App() {
         <Route path="/services/ai-security-governance" element={<AiSecurityGovernance />} />
         <Route path="/services/ai-search-visibility" element={<AiSearchVisibility />} />
         <Route path="/ai-agency-los-angeles" element={<AiAgencyLosAngeles />} />
+        <Route path="/approach" element={<Approach />} />
+        <Route path="/work" element={<Work />} />
         <Route path="/about" element={<About />} />
       </Route>
     </Routes>

@@ -9,11 +9,18 @@ const serviceLinks = [
   { to: '/services/ai-security-governance', label: 'AI Security and Governance' },
 ]
 
+const companyLinks = [
+  { to: '/work', label: 'Work' },
+  { to: '/approach', label: 'Approach' },
+  { to: '/about', label: 'About' },
+  { to: '/ai-agency-los-angeles', label: 'AI Agency in Los Angeles' },
+]
+
 const Footer = () => {
   return (
     <footer className="relative w-full border-t border-white/5 bg-[#0a051e] z-20 pt-24 pb-12">
       <div className="max-w-[1600px] mx-auto px-6 lg:px-[6%]">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16 mb-20">
 
           {/* LEFT: Brand + tagline */}
           <div>
@@ -26,7 +33,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* MIDDLE: Services */}
+          {/* Services */}
           <div>
             <h4 className="text-xs font-mono text-white/40 uppercase mb-6 tracking-widest">Services</h4>
             <ul className="space-y-3">
@@ -40,7 +47,21 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* RIGHT: Contact */}
+          {/* Company */}
+          <div>
+            <h4 className="text-xs font-mono text-white/40 uppercase mb-6 tracking-widest">Company</h4>
+            <ul className="space-y-3">
+              {companyLinks.map((c) => (
+                <li key={c.to}>
+                  <Link to={c.to} className="text-sm text-white/70 hover:text-white transition-colors">
+                    {c.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
           <div>
             <h4 className="text-xs font-mono text-white/40 uppercase mb-6 tracking-widest">Contact</h4>
             <ul className="space-y-3">

@@ -13,10 +13,10 @@ function RelatedLinks({ title = 'Related', links }) {
             <Link
               key={l.to}
               to={l.to}
-              className="group flex items-center justify-between gap-3 border border-white/5 hover:border-white/15 bg-white/[0.02] hover:bg-white/[0.04] rounded-sm px-5 py-4 transition-all duration-300"
+              className="card-surface group flex items-center justify-between gap-3 rounded-sm px-5 py-4"
             >
-              <span className="text-sm text-white/75 group-hover:text-white transition-colors">{l.label}</span>
-              <iconify-icon icon="solar:arrow-right-up-linear" class="text-base text-white/30 group-hover:text-purple-300 group-hover:translate-x-0.5 transition-all"></iconify-icon>
+              <span className="relative z-10 text-sm text-white/75 group-hover:text-white transition-colors">{l.label}</span>
+              <iconify-icon icon="solar:arrow-right-up-linear" class="relative z-10 text-base text-white/30 group-hover:text-purple-300 group-hover:translate-x-0.5 transition-all"></iconify-icon>
             </Link>
           ))}
         </div>
