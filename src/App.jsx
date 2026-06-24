@@ -1,89 +1,37 @@
-import React, { useEffect } from 'react'
-import Navbar from './components/Navbar'
-import UnicornBackground from './components/UnicornBackground'
-import GlobalGrid from './components/GlobalGrid'
-import Hero from './components/Hero'
-import Features from './components/Features'
-import AeoFeature from './components/AeoFeature'
-import Validation from './components/Validation'
-import TestimonialsMarquee from './components/TestimonialsMarquee'
-import FaqSection from './components/FaqSection'
-import FinalCta from './components/FinalCta'
-import Footer from './components/Footer'
-import SectionDivider from './components/ui/SectionDivider'
-import AeoCallout from './components/AeoCallout'
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import AiAutomations from './pages/AiAutomations'
+import CustomAiSoftware from './pages/CustomAiSoftware'
+import KnowledgeSystems from './pages/KnowledgeSystems'
+import AiSecurityGovernance from './pages/AiSecurityGovernance'
+import AiSearchVisibility from './pages/AiSearchVisibility'
+import AiAgencyLosAngeles from './pages/AiAgencyLosAngeles'
+import About from './pages/About'
+import Approach from './pages/Approach'
+import Work from './pages/Work'
 
-// Global scroll-reveal observer: watches every .scroll-reveal element on the page
-// and adds .is-visible when it enters the viewport. Each element fires its CSS
-// transition exactly once. Lets us put scroll-triggered animations on any element
-// without re-implementing the IntersectionObserver per-component.
-function useGlobalScrollReveal() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -10% 0px' }
-    )
-
-    const elements = document.querySelectorAll('.scroll-reveal:not(.is-visible)')
-    elements.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
-}
-
+// Multi-page router. Every route renders inside the shared <Layout> (background,
+// navbar, footer) via nested routes, so the chrome persists across client navigation.
+// Page components live in ./pages and are deliberately presentational; SEO/JSON-LD for
+// each path lives in ./seo.js (consumed by prerender.js + the sitemap generator).
 function App() {
-  useGlobalScrollReveal()
-
   return (
-    <>
-      <UnicornBackground />
-      <GlobalGrid />
-      
-      <div className="relative z-10 flex flex-col w-full h-full">
-        <Navbar />
-        <main className="w-full">
-          {/* 1. Hero with marquee */}
-          <Hero />
-          <SectionDivider duration={9} />
-          {/* 1.5 AEO interlude — strongest line from the old site, breakout treatment */}
-          <AeoCallout />
-          <SectionDivider delay={1.5} duration={10} />
-          {/* 2. Featured offering: AI Search Visibility — Services nav target */}
-          <div id="services" className="scroll-mt-[100px]">
-            <AeoFeature />
-          </div>
-          <SectionDivider delay={0.5} duration={10} />
-          {/* 2.5 Bento menu — everything else (AEO card swapped for Knowledge Systems) */}
-          <Features />
-          <SectionDivider delay={2} duration={11} />
-          {/* Bento carries the full menu; AEO is featured separately above. */}
-          {/* 3. What every engagement includes — Process nav target */}
-          <div id="process" className="scroll-mt-[100px]">
-            <Validation showCta={false} />
-          </div>
-          <SectionDivider delay={1} duration={10} />
-          {/* 4. Who you work with — About nav target (TestimonialsMarquee section already has id="about" but we wrap defensively) */}
-          <TestimonialsMarquee />
-          <SectionDivider delay={3} duration={12} />
-          {/* 5. What we believe (floating wall) */}
-          <FaqSection />
-          <SectionDivider delay={1.5} duration={9} />
-          {/* 6. Final CTA — Book nav target */}
-          <div id="book" className="scroll-mt-[100px]">
-            <FinalCta />
-          </div>
-        </main>
-        {/* 7. Footer */}
-        <Footer />
-      </div>
-    </>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/services/ai-automations" element={<AiAutomations />} />
+        <Route path="/services/custom-ai-software" element={<CustomAiSoftware />} />
+        <Route path="/services/knowledge-systems" element={<KnowledgeSystems />} />
+        <Route path="/services/ai-security-governance" element={<AiSecurityGovernance />} />
+        <Route path="/services/ai-search-visibility" element={<AiSearchVisibility />} />
+        <Route path="/ai-agency-los-angeles" element={<AiAgencyLosAngeles />} />
+        <Route path="/approach" element={<Approach />} />
+        <Route path="/work" element={<Work />} />
+        <Route path="/about" element={<About />} />
+      </Route>
+    </Routes>
   )
 }
 
