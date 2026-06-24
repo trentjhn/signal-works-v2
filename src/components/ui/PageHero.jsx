@@ -5,12 +5,17 @@ import { CALENDLY } from '../../lib/constants'
 // (prerendered, so engines read it). pt clears the fixed 100px navbar.
 function PageHero({ eyebrow, title, titleMuted, intro, ctaLabel = 'Book an intro call', ctaHref = CALENDLY }) {
   return (
-    <section className="relative w-full pt-[140px] md:pt-[160px] pb-16 lg:pb-20 px-6 lg:px-[6%] overflow-hidden border-b border-white/5">
+    <section className="relative w-full pt-[150px] md:pt-[180px] pb-20 lg:pb-28 px-6 lg:px-[6%] overflow-hidden">
+      {/* Ambient framing to match the homepage sections: side rules + soft glow */}
+      <div className="absolute inset-0 pointer-events-none hidden lg:block">
+        <div className="absolute top-0 bottom-0 left-[6%] w-px bg-white/5"></div>
+        <div className="absolute top-0 bottom-0 right-[6%] w-px bg-white/5"></div>
+      </div>
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-purple-900/[0.08] rounded-full blur-[150px]"></div>
+        <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-[1000px] h-[440px] bg-purple-900/[0.10] rounded-full blur-[150px]"></div>
       </div>
 
-      <div className="relative z-10 max-w-[1100px] mx-auto">
+      <div className="relative z-10 max-w-[1200px] mx-auto">
         {eyebrow && (
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-purple-400/20 bg-purple-400/[0.06] backdrop-blur-sm mb-8 scroll-reveal">
             <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
