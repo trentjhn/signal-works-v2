@@ -1,6 +1,7 @@
 import React from 'react'
 import PageHero from '../components/ui/PageHero'
-import { Section, CardGrid, BulletList } from '../components/ui/Prose'
+import { Section, CardGrid } from '../components/ui/Prose'
+import StepRail from '../components/ui/StepRail'
 import CtaBand from '../components/ui/CtaBand'
 import RelatedLinks from '../components/ui/RelatedLinks'
 
@@ -12,11 +13,11 @@ const automate = [
   { icon: 'solar:checklist-minimalistic-bold-duotone', title: 'Meeting-to-action wiring', body: 'Calls and meetings turned into structured notes, action items, and follow-ups pushed to the tools you already use.' },
 ]
 
-const ships = [
-  'A working dashboard a non-technical user can operate. No command-line handoffs.',
-  'Code in your own AWS, GCP, or Azure account, with infrastructure-as-code so you can redeploy or decommission without us.',
-  'A walkthrough video, a one-page runbook, and a live training session for the team running the system.',
-  '30 days of post-handoff support to fix anything that breaks and answer questions.',
+const steps = [
+  { n: '01', title: 'Map where the hours go', body: 'We find the recurring, rules-and-judgment work eating your week. The highest-leverage step gets automated first.' },
+  { n: '02', title: 'Scope one automation', body: 'A single job, defined tightly. No boil-the-ocean platform, no generic chatbot bolted onto your stack.' },
+  { n: '03', title: 'Build and ship it', body: 'In your own infrastructure, with a dashboard a non-technical user can operate. Two to four weeks for most builds.' },
+  { n: '04', title: 'Train and support', body: 'A walkthrough, a runbook, a live training session, and 30 days of support after handoff.' },
 ]
 
 function AiAutomations() {
@@ -30,17 +31,35 @@ function AiAutomations() {
         ctaLabel="Book an intro call"
       />
 
-      <Section title="What we automate" lede="The recurring, rules-and-judgment work that eats hours every week. Each automation is scoped to a specific job, not a generic chatbot bolted onto your stack.">
+      {/* Concrete before/after, the thing that separates a builder from a vendor. */}
+      <Section divider={false} beamDelay={0}>
+        <div className="card-surface rounded-sm p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 scroll-reveal">
+          <div className="relative z-10">
+            <p className="text-[10px] font-mono uppercase tracking-widest text-white/40 mb-3">Before</p>
+            <p className="text-base lg:text-lg text-white/70 font-light leading-relaxed">
+              A marketing team hand-copies every new lead from a web form into three spreadsheets and a CRM. It takes minutes per lead, it happens all day, and someone always forgets a field.
+            </p>
+          </div>
+          <div className="relative z-10 lg:border-l border-white/10 lg:pl-12">
+            <p className="text-[10px] font-mono uppercase tracking-widest text-purple-300/70 mb-3">After</p>
+            <p className="text-base lg:text-lg text-white/85 font-light leading-relaxed">
+              One pipeline captures, deduplicates, enriches, and routes every lead in under 90 seconds, with nothing forgotten. The team stops doing data entry and starts following up.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section title="What we automate" lede="The recurring, rules-and-judgment work that eats hours every week. Each automation is scoped to a specific job." beamDelay={2}>
         <CardGrid items={automate} variant="balanced" />
       </Section>
 
-      <Section title="How every automation ships" lede="Built for production, owned by you. The same handoff standard applies to every engagement.">
-        <BulletList items={ships} />
+      <Section title="How a build goes" lede="Most automations scope, build, and ship in two to four weeks. The first value shows up before the full build is done." size="display" beamDelay={1}>
+        <StepRail steps={steps} />
       </Section>
 
-      <Section title="When automation makes sense" lede="If ten hours a week are lost to work that should run itself, that is what this is for. We start by mapping where the time goes, then automate the highest-leverage steps first so you see value before the full build is done.">
+      <Section title="When automation makes sense" lede="If ten hours a week are lost to work that should run itself, that is what this is for." beamDelay={3} glow>
         <p className="text-sm lg:text-base text-white/60 font-light leading-relaxed max-w-3xl scroll-reveal">
-          Every build is shipped with a security-first methodology grounded in NIST AI RMF and the OWASP LLM Top 10. Most clients keep us on as their ongoing AI department after the first automation lands; the work is yours either way.
+          Every build ships with a security-first methodology grounded in NIST AI RMF and the OWASP LLM Top 10. Most clients keep us on as their ongoing AI department after the first automation lands. The code lives in your repository either way.
         </p>
       </Section>
 
@@ -51,7 +70,7 @@ function AiAutomations() {
         links={[
           { to: '/services/custom-ai-software', label: 'Custom AI Software' },
           { to: '/services/knowledge-systems', label: 'Knowledge Systems' },
-          { to: '/ai-agency-los-angeles', label: 'AI Agency in Los Angeles' },
+          { to: '/work', label: 'Our Work' },
         ]}
       />
     </>
