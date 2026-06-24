@@ -4,91 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-    <!-- Primary meta -->
-    <title>SignalWorks. Automation that actually gets built.</title>
-    <meta name="description" content="Your AI department, sized to how you want to work. We build, deploy, and maintain custom AI systems for small businesses, founder-led brands, and agencies." />
     <meta name="theme-color" content="#0a051e" />
-    <link rel="canonical" href="https://www.signalworks.live/" />
 
-    <!-- Open Graph (Facebook, LinkedIn, iMessage, Slack, Discord, etc.) -->
+    <!-- Open Graph / Twitter image + card are shared across pages; the page-specific
+         title/description/url and JSON-LD are injected per route by prerender.js. -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="SignalWorks" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content="https://www.signalworks.live/" />
-    <meta property="og:title" content="SignalWorks. Automation that actually gets built." />
-    <meta property="og:description" content="Your AI department, sized to how you want to work. We build, deploy, and maintain custom AI systems for small businesses, founder-led brands, and agencies." />
     <meta property="og:image" content="https://www.signalworks.live/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="SignalWorks. Automation that actually gets built." />
-
-    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="SignalWorks. Automation that actually gets built." />
-    <meta name="twitter:description" content="Your AI department, sized to how you want to work. We build, deploy, and maintain custom AI systems for small businesses, founder-led brands, and agencies." />
     <meta name="twitter:image" content="https://www.signalworks.live/og-image.png" />
 
-    <!-- Structured data (JSON-LD): ProfessionalService/Organization + WebSite. Helps Google
-         understand the entity and gives AI engines a verifiable, machine-readable description.
-         knowsAbout = topical authority (sourced from the real service list, not invented).
-         sameAs = profile URLs for entity disambiguation vs the signalworks.ai namesake — fill in
-         once the LinkedIn/Crunchbase/etc. profiles are live. No FAQPage (the FAQ section is
-         beliefs, not Q&A). Only asserted facts. Bump dateModified when content changes. -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": ["Organization", "ProfessionalService"],
-          "@id": "https://www.signalworks.live/#organization",
-          "name": "SignalWorks",
-          "legalName": "SignalWorks LLC",
-          "url": "https://www.signalworks.live/",
-          "foundingDate": "2025",
-          "areaServed": [
-            { "@type": "City", "name": "Los Angeles" },
-            { "@type": "AdministrativeArea", "name": "San Francisco Bay Area" }
-          ],
-          "slogan": "Automation that actually gets built.",
-          "description": "Your AI department, sized to how you want to work. SignalWorks builds, deploys, and maintains custom AI systems for small businesses, founder-led brands, and agencies.",
-          "email": "hello@signalworks.live",
-          "image": "https://www.signalworks.live/og-image.png",
-          "logo": "https://www.signalworks.live/og-image.png",
-          "sameAs": [
-            "https://www.linkedin.com/company/signalworks-ai/",
-            "https://www.crunchbase.com/organization/signalworks-36cf",
-            "https://www.wikidata.org/wiki/Q140041701",
-            "https://share.google/RmDHvRAGs8rT1myib",
-            "https://github.com/signalworks-hq"
-          ],
-          "knowsAbout": [
-            "Artificial intelligence automation",
-            "AI agents",
-            "Answer Engine Optimization",
-            "AI search visibility",
-            "Retrieval-augmented generation",
-            "AI knowledge systems",
-            "AI security and governance",
-            "Custom software development"
-          ],
-          "founder": [
-            { "@type": "Person", "name": "Trenton Johnson", "jobTitle": "Co-founder", "alumniOf": "Yale University" },
-            { "@type": "Person", "name": "Jahleel Heath", "jobTitle": "Co-founder" }
-          ]
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://www.signalworks.live/#website",
-          "name": "SignalWorks",
-          "url": "https://www.signalworks.live/",
-          "inLanguage": "en-US",
-          "publisher": { "@id": "https://www.signalworks.live/#organization" },
-          "dateModified": "2026-06-02"
-        }
-      ]
-    }
-    </script>
+    <!-- Per-route SEO: <title>, description, canonical, og/twitter title+description+url,
+         and JSON-LD. Injected from src/seo.js by prerender.js. On the dev server (which
+         serves this template raw) the per-page tags are absent; that is fine for local dev. -->
+    <!--SEO-->
 
     <!-- Preconnect to font CDNs and WebGL CDN so they start downloading before the parser reaches the actual <link>/<script> tags -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
