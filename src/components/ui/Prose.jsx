@@ -53,10 +53,11 @@ export function Section({ title, lede, children, divider = true, glow = false, s
 }
 
 // One card with the opaque surface treatment + glow border + icon chip.
-function Card({ item, large = false }) {
+function Card({ item, large = false, index = 0 }) {
   return (
     <FlashlightCard
       className={`card-surface flex flex-col h-full rounded-sm relative scroll-reveal ${large ? 'p-8 lg:p-10' : 'p-6 lg:p-8'}`}
+      style={{ transitionDelay: `${(index % 3) * 90}ms` }}
     >
       <GlowOverlays />
       <div className="relative z-10">
@@ -81,8 +82,8 @@ export function CardGrid({ items, variant = 'two', featured = false }) {
       <div className="space-y-5 lg:space-y-6">
         <Card item={lead} large />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
-          {rest.map((it) => (
-            <Card key={it.title} item={it} />
+          {rest.map((it, i) => (
+            <Card key={it.title} item={it} index={i} />
           ))}
         </div>
       </div>
@@ -91,8 +92,8 @@ export function CardGrid({ items, variant = 'two', featured = false }) {
   const cols = variant === 'balanced' ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2'
   return (
     <div className={`grid grid-cols-1 ${cols} gap-5 lg:gap-6`}>
-      {items.map((it) => (
-        <Card key={it.title} item={it} />
+      {items.map((it, i) => (
+        <Card key={it.title} item={it} index={i} />
       ))}
     </div>
   )

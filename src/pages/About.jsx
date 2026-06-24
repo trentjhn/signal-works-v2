@@ -27,7 +27,7 @@ const steps = [
 ]
 
 const notFit = [
-  'You want the cheapest option. Rigorous measurement and a production build cannot be done for $999, and price-first was never the right fit for us.',
+  'You want the cheapest option. We are not the budget choice, and a client who picks on price alone was never the right fit for us.',
   'You need a media buyer or an ad agency. We build the AI engineering layer that those teams cannot deliver alone. We do not run paid campaigns.',
   'You want a demo that wows in the room. We optimize for what holds in production, which is a different and less flashy thing.',
   'You need a vendor you never speak to again. We hand off and train, and most of our work is with clients we stay close to.',
@@ -106,7 +106,7 @@ function About() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {[
             { k: 'Founded', v: '2025' },
-            { k: 'Based in', v: 'Los Angeles and the San Francisco Bay Area. Remote-first.' },
+            { k: 'Based in', v: 'Los Angeles and the San Francisco Bay Area.' },
             { k: 'Built to', v: 'NIST AI RMF, OWASP LLM Top 10, ABA Rule 1.6, AICPA SSTS 1.4' },
           ].map((b) => (
             <div key={b.k} className="card-surface rounded-sm p-6 scroll-reveal">

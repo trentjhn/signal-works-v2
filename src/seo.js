@@ -208,7 +208,7 @@ export const seoRoutes = [
     path: '/ai-agency-los-angeles',
     title: 'AI Automation Agency in Los Angeles | SignalWorks',
     description:
-      'SignalWorks is a custom-AI engineering agency based in Los Angeles. AI automation, custom software, knowledge systems, security, and AI search visibility for LA and Bay Area businesses. Senior-led, remote-first.',
+      'SignalWorks is a custom-AI engineering agency based in Los Angeles. AI automation, custom software, knowledge systems, security, and AI search visibility for LA and Bay Area businesses. Senior-led.',
     canonical: `${BASE}/ai-agency-los-angeles`,
     jsonLd: [
       serviceNode({

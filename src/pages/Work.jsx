@@ -12,22 +12,22 @@ const engines = [
 
 const capabilities = [
   {
-    icon: 'solar:magnifer-zoom-in-bold-duotone',
-    tag: 'AI search visibility',
-    title: 'A premium spirits brand the engines got wrong',
-    body: 'When buyers asked AI about it, one engine confused it with a larger competitor and described it as "budget-friendly." It appeared in 0% of its own category queries despite accurate answers on direct brand questions. We baselined the gap across three engines with confidence intervals so the brand could see exactly where it stood.',
-  },
-  {
     icon: 'solar:graph-new-up-bold-duotone',
     tag: 'Intelligence system',
     title: 'A zero-hallucination governance dashboard',
-    body: 'A daily 7am digest pulling five public government bodies into one dashboard, with a grounding gate that refuses to report anything it cannot cite. Built to a strict no-fabrication bar with hundreds of automated tests, shipped on the client’s own infrastructure.',
+    body: 'A daily digest that pulls five public government bodies into one view and refuses to report anything it cannot cite.',
+  },
+  {
+    icon: 'solar:magnifer-zoom-in-bold-duotone',
+    tag: 'AI search visibility',
+    title: 'Our own AI-visibility measurement system',
+    body: 'The tool we built to track how AI engines describe a brand across five engines, with real statistical confidence behind every number. It is what our search-visibility work runs on.',
   },
   {
     icon: 'solar:inbox-archive-bold-duotone',
     tag: 'Automation',
-    title: 'A lead-gen agent for a marketing firm',
-    body: 'A targeted prospecting agent that mapped 55 businesses within a mile of a client site, returning 25 with direct email and 30 with phone and LinkedIn. The manual version of that research took days; this runs on demand.',
+    title: 'A prospecting agent for a marketing firm',
+    body: 'Maps the businesses around a client site and returns verified contacts on demand. The manual version took days.',
   },
 ]
 
@@ -72,10 +72,11 @@ function Work() {
       <Section title="We ran our own tool on our own brand" size="display" lede="When we first measured how AI engines described SignalWorks, they barely recognized us. Worse, they confused us with same-named companies. We fixed the entity signals and re-measured in about three weeks." beamDelay={0} glow>
         <div className="card-surface rounded-sm p-8 lg:p-10 scroll-reveal">
           <div className="relative z-10">
-            <div className="flex items-baseline gap-4 mb-2">
-              <span className="text-5xl lg:text-6xl font-semibold text-white tracking-tight tabular-nums">4% → 28%</span>
+            <div className="flex items-baseline gap-4 mb-3">
+              <span className="text-6xl lg:text-7xl font-semibold text-white tracking-tight tabular-nums leading-none">7&times;</span>
+              <span className="text-base lg:text-lg text-white/70 font-light max-w-xs">more often recognized as the right company by AI engines</span>
             </div>
-            <p className="text-sm text-white/55 font-light mb-8">Correct entity recognition across AI engines, before and after. Roughly a 7x change.</p>
+            <p className="text-sm text-white/55 font-light mb-8 max-w-xl">In about three weeks, after we fixed our own entity signals, correct recognition across engines went from 4% to 28%. Here is the per-engine movement.</p>
 
             <div className="space-y-5">
               {engines.map((e) => (
@@ -97,7 +98,7 @@ function Work() {
       </Section>
 
       {/* Anonymized capability examples. */}
-      <Section title="What we have built" lede="Client names stay private until they choose otherwise. The work, and the rigor, do not." beamDelay={2}>
+      <Section title="Some of the things we have built" beamDelay={2}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
           {capabilities.map((c) => (
             <div key={c.title} className="card-surface rounded-sm p-6 lg:p-8 scroll-reveal">

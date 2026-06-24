@@ -185,6 +185,16 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Dropdown — descends from just under the trigger (top-down), not the bottom-up reveal-up */
+@keyframes dropdown-in {
+  from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.dropdown-panel {
+  animation: dropdown-in 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: top center;
+}
+
 /* Bar grow — AEO mention-rate bars expand from 0 to their value on mount */
 @keyframes bar-grow {
   from { width: 0; }

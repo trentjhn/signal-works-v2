@@ -13,7 +13,7 @@ const services = [
 ]
 
 const local = [
-  'Based in Los Angeles, also serving the San Francisco Bay Area. Remote-first, working with clients anywhere.',
+  'Based in Los Angeles, also serving the San Francisco Bay Area, and working with clients anywhere.',
   'Senior-led from first call to final handoff. The people who scope your build are the ones who build and ship it.',
   'Every build ships in your own infrastructure with documentation, infrastructure-as-code, and a training session.',
   'Built to NIST AI RMF and the OWASP LLM Top 10.',

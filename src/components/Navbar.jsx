@@ -134,21 +134,22 @@ const Navbar = () => {
       {/* Desktop Services dropdown panel — portaled to <body> to sit above all page content */}
       {servicesOpen && menuPos && typeof document !== 'undefined' &&
         createPortal(
-          <div
-            ref={panelRef}
-            style={{ position: 'fixed', left: menuPos.left, top: menuPos.top, transform: 'translateX(-50%)' }}
-            className="z-[9999] w-[320px] rounded-md border border-white/15 bg-[#140b35] shadow-2xl shadow-purple-950/60 ring-1 ring-black/40 p-2 animate-reveal"
-          >
-            {services.map((s) => (
-              <Link
-                key={s.to}
-                to={s.to}
-                className="group flex flex-col gap-0.5 rounded-sm px-4 py-3 hover:bg-white/[0.06] transition-colors"
-              >
-                <span className="text-sm font-medium text-white/90 group-hover:text-white transition-colors">{s.label}</span>
-                <span className="text-[11px] font-light text-white/40">{s.desc}</span>
-              </Link>
-            ))}
+          <div style={{ position: 'fixed', left: menuPos.left, top: menuPos.top, transform: 'translateX(-50%)' }} className="z-[9999]">
+            <div
+              ref={panelRef}
+              className="dropdown-panel w-[320px] rounded-md border border-white/15 bg-[#140b35] shadow-2xl shadow-purple-950/60 ring-1 ring-black/40 p-2"
+            >
+              {services.map((s) => (
+                <Link
+                  key={s.to}
+                  to={s.to}
+                  className="group flex flex-col gap-0.5 rounded-sm px-4 py-3 hover:bg-white/[0.06] transition-colors"
+                >
+                  <span className="text-sm font-medium text-white/90 group-hover:text-white transition-colors">{s.label}</span>
+                  <span className="text-[11px] font-light text-white/40">{s.desc}</span>
+                </Link>
+              ))}
+            </div>
           </div>,
           document.body
         )}

@@ -39,7 +39,11 @@ const FlashlightCard = ({ children, className = '', style = {}, tilt = true, ...
       className={`group ${className}`}
       style={{
         ...style,
-        transition: tilt ? 'transform 400ms cubic-bezier(0.16, 1, 0.3, 1)' : style.transition,
+        // Include opacity so scroll-reveal fades smoothly. Without it, the inline
+        // transform-only transition overrides .scroll-reveal's `all` and opacity snaps in.
+        transition: tilt
+          ? 'transform 450ms cubic-bezier(0.16, 1, 0.3, 1), opacity 800ms cubic-bezier(0.16, 1, 0.3, 1)'
+          : style.transition,
         transformStyle: 'preserve-3d',
       }}
       {...props}
