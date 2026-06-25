@@ -254,7 +254,7 @@ export const seoRoutes = [
         '@type': 'WebPage',
         '@id': `${BASE}/approach/#webpage`,
         url: `${BASE}/approach`,
-        name: 'Our Approach — Security-First AI Engineering',
+        name: 'Our Approach: Security-First AI Engineering',
         description:
           'SignalWorks’ security-first methodology: a five-layer production harness, a six-step build discipline, and the frameworks every build is held to.',
         about: { '@id': ORG_ID },
@@ -274,7 +274,7 @@ export const seoRoutes = [
         '@type': 'CollectionPage',
         '@id': `${BASE}/work/#webpage`,
         url: `${BASE}/work`,
-        name: 'Our Work — Measured AI Results',
+        name: 'Our Work: Measured AI Results',
         description:
           'Measured results and anonymized capability examples from SignalWorks, reported with the same candor a client receives.',
         about: { '@id': ORG_ID },

@@ -6,7 +6,7 @@ import RelatedLinks from '../components/ui/RelatedLinks'
 // Dogfood result — measured on SignalWorks' own brand, fully shareable.
 const engines = [
   { name: 'Gemini', before: 0, after: 52 },
-  { name: 'ChatGPT', before: 0, after: 32 },
+  { name: 'ChatGPT', before: 12, after: 32 },
   { name: 'Claude', before: 0, after: 0 },
 ]
 
