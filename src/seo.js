@@ -29,6 +29,7 @@ const orgNode = {
   sameAs: [
     'https://www.linkedin.com/company/signalworks-ai/',
     'https://www.crunchbase.com/organization/signalworks-36cf',
+    'https://www.g2.com/products/signalworks-ai/',
     'https://www.wikidata.org/wiki/Q140041701',
     'https://share.google/RmDHvRAGs8rT1myib',
     'https://github.com/signalworks-hq',
