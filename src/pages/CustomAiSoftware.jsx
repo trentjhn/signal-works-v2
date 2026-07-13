@@ -35,19 +35,19 @@ function CustomAiSoftware() {
         <div className="relative z-10 max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-6 xl:col-span-7">
             <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-purple-200/80 mb-7 animate-reveal">&gt; services / custom-ai-software</p>
-            <h1 className="leading-[1.04] animate-reveal delay-100 text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight mb-8">
+            <h1 className="leading-[1.04] animate-reveal reveal-delay-100 text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight mb-8">
               Custom AI software
               <span className="text-white/30"> for the workflow you actually have.</span>
             </h1>
-            <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-xl mb-9 animate-reveal delay-200">
+            <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-xl mb-9 animate-reveal reveal-delay-200">
               When the tool you need does not exist off the shelf, we build it. Intelligence systems, custom agents with backend integration, and bespoke web apps, shipped to production in your own infrastructure.
             </p>
-            <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-wider bg-white text-black py-4 px-6 rounded-sm transition-all duration-300 hover:shadow-[0_0_30px_-8px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 animate-reveal delay-300">
+            <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-wider bg-white text-black py-4 px-6 rounded-sm transition-[transform,box-shadow] duration-300 ease-swift hover:shadow-[0_0_30px_-8px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 active:scale-[0.97] animate-reveal reveal-delay-300">
               <span>Book an intro call</span>
               <iconify-icon icon="solar:arrow-right-linear" class="text-base group-hover:translate-x-1 transition-transform duration-300"></iconify-icon>
             </a>
           </div>
-          <div className="lg:col-span-6 xl:col-span-5 animate-reveal delay-200">
+          <div className="lg:col-span-6 xl:col-span-5 animate-reveal reveal-delay-200">
             <SystemDiagram />
           </div>
         </div>

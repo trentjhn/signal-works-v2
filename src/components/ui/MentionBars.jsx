@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
-// Mention-rate board with confidence-interval bands. The bar grows from 0 on mount and a
-// lighter band shows the 95% CI range, making the methodological differentiator visible.
-// Illustrative numbers, labelled as such.
+// Mention-rate board with confidence-interval bands. The bar grows from 0 when scrolled
+// into view and a lighter band shows the 95% CI range, making the methodological
+// differentiator visible. Illustrative numbers, labelled as such.
 const data = [
   { name: 'ChatGPT', pct: 82, lo: 75, hi: 88 },
   { name: 'Perplexity', pct: 68, lo: 60, hi: 75 },
@@ -12,8 +12,26 @@ const data = [
 ]
 
 function MentionBars() {
+  const ref = useRef(null)
+  const [grown, setGrown] = useState(false)
+
+  // Same in-view one-shot pattern as CountUp.jsx
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setGrown(true)
+          observer.unobserve(entry.target)
+        }
+      },
+      { threshold: 0.4 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <div className="card-surface rounded-sm p-6 lg:p-8 scroll-reveal">
+    <div ref={ref} className="card-surface rounded-sm p-6 lg:p-8 scroll-reveal">
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-6">
           <span className="text-[10px] font-mono uppercase tracking-widest text-white/40">Mention rate / category queries</span>
@@ -28,7 +46,10 @@ function MentionBars() {
               </div>
               <div className="relative h-2.5 w-full bg-white/5 rounded-full overflow-hidden">
                 <div className="absolute top-0 bottom-0 bg-purple-300/15" style={{ left: `${e.lo}%`, width: `${e.hi - e.lo}%` }}></div>
-                <div className="bar-grow absolute top-0 bottom-0 left-0 bg-gradient-to-r from-purple-500/70 to-purple-400 rounded-full" style={{ '--bar-width': `${e.pct}%`, animationDelay: `${i * 110}ms` }}></div>
+                <div
+                  className={`bar-grow absolute top-0 bottom-0 left-0 bg-gradient-to-r from-purple-500/70 to-purple-400 rounded-full ${grown ? 'is-grown' : ''}`}
+                  style={{ width: `${e.pct}%`, animationDelay: `${i * 110}ms` }}
+                ></div>
               </div>
             </div>
           ))}

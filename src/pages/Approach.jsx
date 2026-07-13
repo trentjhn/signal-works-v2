@@ -49,11 +49,11 @@ function Approach() {
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
             <span className="text-[10px] font-mono uppercase tracking-widest text-amber-200/90">Our approach / security first</span>
           </div>
-          <h1 className="leading-[1.04] animate-reveal delay-100 text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight mb-8 max-w-4xl">
+          <h1 className="leading-[1.04] animate-reveal reveal-delay-100 text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight mb-8 max-w-4xl">
             We build so the AI horror stories
             <span className="text-white/30"> don’t happen to you.</span>
           </h1>
-          <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-2xl animate-reveal delay-200">
+          <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-2xl animate-reveal reveal-delay-200">
             Most businesses adopt AI faster than they secure it. The result is the stories you have read: leaked client data, a confident wrong answer sent to a customer, a tool that quietly trained on everything you fed it. We engineer the boring safeguards that keep those stories from being yours.
           </p>
         </div>

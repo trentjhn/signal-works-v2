@@ -60,8 +60,8 @@ const Validation = ({ showCta = true }) => {
           {deliverables.map((d, idx) => (
             <FlashlightCard
               key={idx}
-              className={`hover:bg-white/[0.04] transition-all duration-500 border border-white/5 hover:border-white/10 rounded-sm backdrop-blur-lg p-8 lg:p-10 relative overflow-hidden flex flex-col min-h-[320px] scroll-reveal`}
-              style={{ transitionDelay: `${idx * 0.1}s` }}
+              className={`hover:bg-white/[0.04] border border-white/5 hover:border-white/10 rounded-sm backdrop-blur-lg p-8 lg:p-10 relative overflow-hidden flex flex-col min-h-[320px] scroll-reveal`}
+              style={{ animationDelay: `${idx * 0.1}s` }}
             >
               <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%)', zIndex: 0 }}></div>
               <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%)', zIndex: 0, WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', padding: '1px' }}></div>
@@ -88,15 +88,15 @@ const Validation = ({ showCta = true }) => {
 
         {/* Bottom Banner CTA — render only when requested */}
         {showCta && (
-          <div id="book" className="hover:bg-white/[0.04] rounded-sm p-8 lg:px-12 lg:py-10 flex flex-col items-center justify-center gap-6 relative overflow-hidden group border border-white/5 hover:border-white/10 backdrop-blur-lg transition-all duration-500">
-            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,33,128,0.2)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:0_0,0_0] transition-all duration-1000 group-hover:bg-[position:100%_100%,0_0]"></div>
+          <div id="book" className="hover:bg-white/[0.04] rounded-sm p-8 lg:px-12 lg:py-10 flex flex-col items-center justify-center gap-6 relative overflow-hidden group border border-white/5 hover:border-white/10 backdrop-blur-lg transition-colors duration-500 ease-swift">
+            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,33,128,0.2)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:0_0,0_0] transition-[background-position] duration-1000 group-hover:bg-[position:100%_100%,0_0]"></div>
 
             <div className="relative z-10 text-center max-w-2xl">
               <h3 className="text-3xl lg:text-4xl font-medium text-white tracking-tight mb-2">Ready to scope your engagement?</h3>
               <p className="text-white/50 text-base font-light">A 30-minute call is enough to know if we are a fit.</p>
             </div>
 
-            <a href="https://calendly.com/hello-signalworks" target="_blank" rel="noopener noreferrer" className="relative z-10 bg-white text-black pl-8 pr-6 py-4 rounded-sm font-semibold text-xs uppercase tracking-widest hover:bg-purple-50 transition-all transform flex items-center gap-4 group/btn">
+            <a href="https://calendly.com/hello-signalworks" target="_blank" rel="noopener noreferrer" className="relative z-10 bg-white text-black pl-8 pr-6 py-4 rounded-sm font-semibold text-xs uppercase tracking-widest hover:bg-purple-50 transition-[color,background-color,border-color,transform,box-shadow] duration-300 ease-swift active:scale-[0.97] flex items-center gap-4 group/btn">
               Book an intro call
               <div className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center group-hover/btn:scale-110 transition-transform">
                 <iconify-icon icon="solar:arrow-right-bold-duotone" class="text-sm"></iconify-icon>

@@ -116,7 +116,7 @@ const SwipeableMarquee = ({ children, speed = 0.3, mobileSpeed = null, briefPaus
         <button
           type="button"
           onClick={() => scrollByAmount(-340)}
-          className="group flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] hover:border-white/20 transition-all backdrop-blur-sm"
+          className="group flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] hover:border-white/20 transition-[color,background-color,border-color,transform] duration-300 active:scale-95 backdrop-blur-sm"
           aria-label="Scroll cards left"
         >
           <iconify-icon icon="solar:arrow-left-linear" class="text-white/60 group-hover:text-white text-base"></iconify-icon>
@@ -124,7 +124,7 @@ const SwipeableMarquee = ({ children, speed = 0.3, mobileSpeed = null, briefPaus
         <button
           type="button"
           onClick={() => scrollByAmount(340)}
-          className="group flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] hover:border-white/20 transition-all backdrop-blur-sm"
+          className="group flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.08] hover:border-white/20 transition-[color,background-color,border-color,transform] duration-300 active:scale-95 backdrop-blur-sm"
           aria-label="Scroll cards right"
         >
           <iconify-icon icon="solar:arrow-right-linear" class="text-white/60 group-hover:text-white text-base"></iconify-icon>

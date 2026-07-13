@@ -32,10 +32,10 @@ function AiSecurityGovernance() {
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
             <span className="text-[10px] font-mono uppercase tracking-widest text-amber-200/90">Risk: unassessed</span>
           </div>
-          <h1 className="leading-[1.05] animate-reveal delay-100 text-4xl md:text-5xl font-medium text-white tracking-tight mb-7">
+          <h1 className="leading-[1.05] animate-reveal reveal-delay-100 text-4xl md:text-5xl font-medium text-white tracking-tight mb-7">
             Find the risk in your AI before it finds you.
           </h1>
-          <p className="text-base lg:text-lg text-white/65 font-light leading-relaxed animate-reveal delay-200">
+          <p className="text-base lg:text-lg text-white/65 font-light leading-relaxed animate-reveal reveal-delay-200">
             Most businesses adopt AI faster than they secure it. We assess the AI you already run, audit the vendors behind it, write the usage policy your team will follow, and map your use to the regulations that apply to your industry. You get a clear picture of where you stand and what to fix first.
           </p>
         </div>
@@ -48,7 +48,7 @@ function AiSecurityGovernance() {
       <Section title="What you walk away with" lede="An assessment is only useful if it tells you what to do. You leave with three things you can act on." beamDelay={2}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
           {deliverables.map((d, i) => (
-            <div key={d.title} className="card-surface rounded-sm p-6 lg:p-8 scroll-reveal" style={{ transitionDelay: `${i * 90}ms` }}>
+            <div key={d.title} className="card-surface rounded-sm p-6 lg:p-8 scroll-reveal" style={{ animationDelay: `${i * 90}ms` }}>
               <div className="relative z-10">
                 <div className="w-11 h-11 rounded-md bg-purple-500/12 border border-purple-400/20 flex items-center justify-center mb-5">
                   <iconify-icon icon={d.icon} class="text-purple-300 text-xl"></iconify-icon>

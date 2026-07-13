@@ -13,7 +13,13 @@ export default {
         sakura: {
           dark: '#0a051e',
         }
-      }
+      },
+      transitionTimingFunction: {
+        swift: 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+      transitionDuration: {
+        400: '400ms',
+      },
     },
   },
   plugins: [],

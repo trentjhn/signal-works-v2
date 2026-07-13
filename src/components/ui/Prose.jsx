@@ -42,7 +42,7 @@ export function Section({ title, lede, children, divider = true, glow = false, s
           </h2>
         )}
         {lede && (
-          <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-2xl mb-10 scroll-reveal delay-100">
+          <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-2xl mb-10 scroll-reveal reveal-delay-100">
             {lede}
           </p>
         )}
@@ -57,7 +57,7 @@ function Card({ item, large = false, index = 0 }) {
   return (
     <FlashlightCard
       className={`card-surface flex flex-col h-full rounded-sm relative scroll-reveal ${large ? 'p-8 lg:p-10' : 'p-6 lg:p-8'}`}
-      style={{ transitionDelay: `${(index % 3) * 90}ms` }}
+      style={{ animationDelay: `${(index % 3) * 90}ms` }}
     >
       <GlowOverlays />
       <div className="relative z-10">

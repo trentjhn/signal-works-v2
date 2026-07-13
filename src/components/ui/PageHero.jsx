@@ -23,13 +23,13 @@ function PageHero({ eyebrow, title, titleMuted, intro, ctaLabel = 'Book an intro
           </div>
         )}
 
-        <h1 className="leading-[1.04] animate-reveal delay-100 text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight mb-8 max-w-4xl">
+        <h1 className="leading-[1.04] animate-reveal reveal-delay-100 text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight mb-8 max-w-4xl">
           {title}
           {titleMuted ? <span className="text-white/30">{` ${titleMuted}`}</span> : null}
         </h1>
 
         {intro && (
-          <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-2xl mb-10 animate-reveal delay-200">
+          <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-2xl mb-10 animate-reveal reveal-delay-200">
             {intro}
           </p>
         )}
@@ -38,7 +38,7 @@ function PageHero({ eyebrow, title, titleMuted, intro, ctaLabel = 'Book an intro
           href={ctaHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-wider bg-white text-black py-4 px-6 rounded-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_-8px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 animate-reveal delay-300"
+          className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-wider bg-white text-black py-4 px-6 rounded-sm overflow-hidden transition-[transform,box-shadow] duration-300 ease-swift hover:shadow-[0_0_30px_-8px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 active:scale-[0.97] animate-reveal reveal-delay-300"
         >
           <span>{ctaLabel}</span>
           <iconify-icon icon="solar:arrow-right-linear" class="text-base group-hover:translate-x-1 transition-transform duration-300"></iconify-icon>

@@ -19,7 +19,7 @@ function Accordion({ items }) {
               <span className="text-base lg:text-lg font-medium text-white tracking-tight">{it.title}</span>
               <iconify-icon icon="solar:alt-arrow-down-linear" class={`text-lg text-purple-300/70 shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}></iconify-icon>
             </button>
-            <div className={`relative z-10 grid transition-all duration-400 ease-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-70'}`}>
+            <div className={`relative z-10 grid transition-[grid-template-rows,opacity] duration-400 ease-swift ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-70'}`}>
               <div className="overflow-hidden">
                 <p className="px-6 lg:px-8 pb-6 lg:pb-7 text-sm lg:text-[15px] text-white/60 font-light leading-relaxed max-w-3xl">{it.body}</p>
               </div>

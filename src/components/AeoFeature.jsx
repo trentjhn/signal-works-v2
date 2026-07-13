@@ -40,16 +40,16 @@ const AeoFeature = () => {
               <span className="text-[10px] font-mono uppercase tracking-widest text-purple-200/90">Featured / AI Search Visibility</span>
             </div>
 
-            <h2 className="leading-[1.02] scroll-reveal delay-100 lg:text-6xl text-4xl font-medium text-white tracking-tighter mb-8">
+            <h2 className="leading-[1.02] scroll-reveal reveal-delay-100 lg:text-6xl text-4xl font-medium text-white tracking-tighter mb-8">
               When buyers ask AI,
               <span className="text-white/30"> does your brand come up?</span>
             </h2>
 
-            <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-xl mb-8 scroll-reveal delay-200">
+            <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-xl mb-8 scroll-reveal reveal-delay-200">
               When someone asks ChatGPT or Gemini about your brand, you don't control what comes back. These engines get brands wrong all the time. They confuse you with a competitor, invent details that were never real, or leave you out of the answer completely. Buyers trust what the AI tells them. We find out what the engines actually say about you, fix what's wrong, and re-measure at 30 days so you can see it move.
             </p>
 
-            <div className="flex flex-wrap gap-2 mb-10 scroll-reveal delay-300">
+            <div className="flex flex-wrap gap-2 mb-10 scroll-reveal reveal-delay-300">
               {proof.map((p) => (
                 <span key={p} className="text-[11px] font-mono tracking-wide text-white/50 border border-white/10 bg-white/[0.03] rounded-sm px-3 py-1.5">
                   {p}
@@ -61,7 +61,7 @@ const AeoFeature = () => {
               href="https://calendly.com/hello-signalworks"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-wider bg-white text-black py-4 px-6 rounded-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_-8px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 scroll-reveal delay-300"
+              className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-wider bg-white text-black py-4 px-6 rounded-sm overflow-hidden transition-[transform,box-shadow] duration-300 ease-swift hover:shadow-[0_0_30px_-8px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 active:scale-[0.97] scroll-reveal reveal-delay-300"
             >
               <span>Get your visibility baseline</span>
               <iconify-icon icon="solar:arrow-right-linear" class="text-base group-hover:translate-x-1 transition-transform duration-300"></iconify-icon>
@@ -69,7 +69,7 @@ const AeoFeature = () => {
           </div>
 
           {/* Right: measurement board */}
-          <div className="lg:col-span-6 xl:col-span-5 scroll-reveal delay-200">
+          <div className="lg:col-span-6 xl:col-span-5 scroll-reveal reveal-delay-200">
             <FlashlightCard className="border border-white/10 hover:border-white/20 transition-colors duration-500 rounded-sm backdrop-blur-lg p-6 lg:p-8 relative overflow-hidden bg-white/[0.02]">
               <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%)', zIndex: 0 }}></div>
               <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%)', zIndex: 0, WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', padding: '1px' }}></div>

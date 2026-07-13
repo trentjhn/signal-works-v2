@@ -16,7 +16,7 @@ function RelatedLinks({ title = 'Related', links }) {
               className="card-surface group flex items-center justify-between gap-3 rounded-sm px-5 py-4"
             >
               <span className="relative z-10 text-sm text-white/75 group-hover:text-white transition-colors">{l.label}</span>
-              <iconify-icon icon="solar:arrow-right-up-linear" class="relative z-10 text-base text-white/30 group-hover:text-purple-300 group-hover:translate-x-0.5 transition-all"></iconify-icon>
+              <iconify-icon icon="solar:arrow-right-up-linear" class="relative z-10 text-base text-white/30 group-hover:text-purple-300 group-hover:translate-x-0.5 transition-[color,transform] duration-300"></iconify-icon>
             </Link>
           ))}
         </div>

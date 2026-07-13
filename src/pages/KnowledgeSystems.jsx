@@ -26,13 +26,13 @@ function KnowledgeSystems() {
             <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
             <span className="text-[10px] font-mono uppercase tracking-widest text-purple-200/90">Service / Knowledge Systems</span>
           </div>
-          <h1 className="leading-[1.04] animate-reveal delay-100 text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight mb-7">
+          <h1 className="leading-[1.04] animate-reveal reveal-delay-100 text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight mb-7">
             Let your team just ask.
           </h1>
-          <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-2xl mx-auto mb-10 animate-reveal delay-200">
+          <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-2xl mx-auto mb-10 animate-reveal reveal-delay-200">
             Your scattered docs, Slack, and drives turned into one searchable brain. Permission-aware, so the right people see the right answers and nothing leaks. Built on retrieval-augmented generation and shipped in your own infrastructure.
           </p>
-          <div className="flex justify-center animate-reveal delay-300">
+          <div className="flex justify-center animate-reveal reveal-delay-300">
             <TypedSearch />
           </div>
         </div>

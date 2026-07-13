@@ -35,15 +35,15 @@ function AiAgencyLosAngeles() {
               <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
               <span className="text-[10px] font-mono uppercase tracking-widest text-purple-200/90">AI Agency / Los Angeles</span>
             </div>
-            <h1 className="leading-[1.04] animate-reveal delay-100 text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight mb-8">
+            <h1 className="leading-[1.04] animate-reveal reveal-delay-100 text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight mb-8">
               An AI agency in Los Angeles
               <span className="text-white/30"> that ships production work.</span>
             </h1>
-            <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-xl animate-reveal delay-200">
+            <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-xl animate-reveal reveal-delay-200">
               SignalWorks is a senior-led custom-AI engineering studio based in Los Angeles. We build, deploy, and maintain AI automation and software for businesses across LA and the San Francisco Bay Area, and remotely anywhere.
             </p>
           </div>
-          <div className="lg:col-span-5 animate-reveal delay-200">
+          <div className="lg:col-span-5 animate-reveal reveal-delay-200">
             <div className="card-surface rounded-sm p-7 lg:p-8">
               <div className="relative z-10">
                 <p className="text-[10px] font-mono uppercase tracking-widest text-white/40 mb-5">Where we are</p>

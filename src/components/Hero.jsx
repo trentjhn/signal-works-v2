@@ -195,12 +195,12 @@ const Hero = () => {
           </p>
         </div>
 
-        <div ref={addToRefs} className="scroll-reveal delay-200 lg:col-span-3 lg:col-start-9 xl:col-span-3 xl:col-start-10 flex lg:justify-end">
+        <div ref={addToRefs} className="scroll-reveal reveal-delay-200 lg:col-span-3 lg:col-start-9 xl:col-span-3 xl:col-start-10 flex lg:justify-end">
           <a
             href="https://calendly.com/hello-signalworks"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-3 text-xs font-bold uppercase tracking-wider bg-white text-black py-4 px-6 rounded-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_-8px_rgba(168,85,247,0.5)] hover:-translate-y-0.5"
+            className="group relative inline-flex items-center gap-3 text-xs font-bold uppercase tracking-wider bg-white text-black py-4 px-6 rounded-sm overflow-hidden transition-[transform,box-shadow] duration-300 ease-swift hover:shadow-[0_0_30px_-8px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 active:scale-[0.97]"
           >
             {/* Sliding purple sheen on hover */}
             <span className="absolute inset-0 bg-gradient-to-r from-purple-200 via-purple-100 to-purple-200 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" aria-hidden="true"></span>
@@ -211,7 +211,7 @@ const Hero = () => {
       </div>
 
       {/* Trusted-by marquee — original placement, below paragraph + CTA */}
-      <div ref={addToRefs} className="scroll-reveal delay-300 mt-16 lg:mt-20">
+      <div ref={addToRefs} className="scroll-reveal reveal-delay-300 mt-16 lg:mt-20">
         <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/30 mb-5 flex items-center gap-3">
           <span className="w-8 h-px bg-white/20"></span>
           Trusted by

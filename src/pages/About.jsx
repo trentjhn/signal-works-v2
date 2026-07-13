@@ -43,11 +43,11 @@ function About() {
         </div>
         <div className="relative z-10 max-w-[1000px] mx-auto text-center">
           <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-purple-200/70 mb-8 animate-reveal">About SignalWorks</p>
-          <h1 className="leading-[1.06] text-3xl md:text-5xl lg:text-[3.5rem] font-medium text-white tracking-tight animate-reveal delay-100">
+          <h1 className="leading-[1.06] text-3xl md:text-5xl lg:text-[3.5rem] font-medium text-white tracking-tight animate-reveal reveal-delay-100">
             We left bigger companies to build the
             <span className="text-white/30"> AI department we wished existed.</span>
           </h1>
-          <p className="mt-10 text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-2xl mx-auto animate-reveal delay-200">
+          <p className="mt-10 text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-2xl mx-auto animate-reveal reveal-delay-200">
             SignalWorks is a senior-led AI engineering studio in Los Angeles and the San Francisco Bay Area. We build, deploy, and maintain custom AI systems for small businesses, founder-led brands, and agencies. The people who scope your build are the ones who build it.
           </p>
         </div>

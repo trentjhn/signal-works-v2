@@ -12,8 +12,14 @@ const SplitHeading = ({
 }) => {
   const ref = useRef(null)
   const [isVisible, setIsVisible] = useState(false)
+  const [reduceMotion, setReduceMotion] = useState(false)
 
   useEffect(() => {
+    if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setReduceMotion(true)
+      setIsVisible(true)
+      return
+    }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -34,12 +40,13 @@ const SplitHeading = ({
       {words.map((word, idx) => (
         <React.Fragment key={idx}>
           <span
-            className="inline-block transition-all duration-700"
+            className="inline-block transition-[opacity,transform] duration-700"
             style={{
+              transitionProperty: reduceMotion ? 'none' : undefined,
               transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
               transitionDelay: `${idx * wordStagger}ms`,
               opacity: isVisible ? 1 : 0,
-              transform: isVisible ? 'translateY(0)' : 'translateY(28px)',
+              transform: reduceMotion ? 'none' : (isVisible ? 'translateY(0)' : 'translateY(28px)'),
               color: accentWords.includes(idx) ? 'rgba(255,255,255,0.3)' : undefined,
             }}
           >

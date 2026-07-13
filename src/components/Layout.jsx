@@ -52,7 +52,7 @@ function Layout() {
 
       <div className="relative z-10 flex flex-col w-full h-full">
         <Navbar />
-        <main className="w-full">
+        <main key={pathname} className="w-full route-fade">
           <Outlet />
         </main>
         <Footer />

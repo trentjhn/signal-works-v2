@@ -6,7 +6,7 @@ function StepRail({ steps }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
       {steps.map((s, i) => (
-        <div key={s.n} className="relative scroll-reveal" style={{ transitionDelay: `${i * 100}ms` }}>
+        <div key={s.n} className="relative scroll-reveal" style={{ animationDelay: `${i * 100}ms` }}>
           {i < steps.length - 1 && (
             <div className="hidden lg:block absolute top-5 left-[52px] right-[-24px] h-px bg-gradient-to-r from-purple-400/40 via-purple-400/15 to-transparent"></div>
           )}

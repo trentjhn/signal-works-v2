@@ -21,7 +21,7 @@ const AeoCallout = () => {
         {/* Four-line stacked headline. Each phrase is its own row via `block` so wrapping
             never splits a hyphenated word. Sizes scaled down one notch from previous so
             the longest line ("That is the work we") fits comfortably on lg viewports. */}
-        <h2 className="leading-[1.15] text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-medium text-white tracking-tight scroll-reveal delay-100">
+        <h2 className="leading-[1.15] text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-medium text-white tracking-tight scroll-reveal reveal-delay-100">
           <span className="block">Keeping up with AI is</span>
           <span className="block text-white/40">a full-time job.</span>
           <span className="block mt-3 lg:mt-5">That is the work</span>
@@ -29,7 +29,7 @@ const AeoCallout = () => {
         </h2>
 
         {/* Subtle context line */}
-        <p className="mt-12 text-base lg:text-lg text-white/50 font-light max-w-2xl mx-auto scroll-reveal delay-200">
+        <p className="mt-12 text-base lg:text-lg text-white/50 font-light max-w-2xl mx-auto scroll-reveal reveal-delay-200">
           We build, deploy, and maintain custom AI systems for small businesses, founder-led brands, and agencies.
         </p>
       </div>

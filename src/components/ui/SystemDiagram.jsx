@@ -21,7 +21,7 @@ function SystemDiagram() {
     <div className="flex flex-col md:flex-row md:items-stretch gap-1 md:gap-0">
       {nodes.map((n, i) => (
         <React.Fragment key={n.label}>
-          <div className="card-surface rounded-sm p-6 lg:p-7 flex-1 flex flex-col items-center text-center justify-center min-h-[150px] scroll-reveal" style={{ transitionDelay: `${i * 120}ms` }}>
+          <div className="card-surface rounded-sm p-6 lg:p-7 flex-1 flex flex-col items-center text-center justify-center min-h-[150px] scroll-reveal" style={{ animationDelay: `${i * 120}ms` }}>
             <div className="relative z-10">
               <div className="w-12 h-12 rounded-md bg-purple-500/12 border border-purple-400/20 flex items-center justify-center mb-4 mx-auto">
                 <iconify-icon icon={n.icon} class="text-purple-300 text-2xl"></iconify-icon>

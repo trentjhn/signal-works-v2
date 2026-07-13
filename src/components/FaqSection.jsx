@@ -10,7 +10,7 @@ import SwipeableMarquee from './ui/SwipeableMarquee'
 
 const StatementCard = ({ children, accent = false }) => (
   <div
-    className={`md:backdrop-blur-md border border-white/5 p-5 rounded-sm hover:bg-white/[0.06] transition-all hover:-translate-y-1 group min-h-[180px] flex flex-col justify-between ${
+    className={`md:backdrop-blur-md border border-white/5 p-5 rounded-sm hover:bg-white/[0.06] transition-[color,background-color,border-color,transform] duration-300 ease-swift hover:-translate-y-1 group min-h-[180px] flex flex-col justify-between ${
       accent ? 'bg-gradient-to-br from-purple-900/20 to-transparent border-purple-500/20' : 'bg-white/[0.03]'
     }`}
   >
@@ -23,7 +23,7 @@ const StatementCard = ({ children, accent = false }) => (
 
 // numericValue is the integer to count up to. value (string) optional override; falls back to numericValue+suffix.
 const StatCard = ({ numericValue, suffix = '', prefix = '', label }) => (
-  <div className="bg-white/[0.03] md:backdrop-blur-md border border-white/5 p-5 rounded-sm flex items-center gap-4 hover:bg-white/[0.06] transition-all min-h-[90px]">
+  <div className="bg-white/[0.03] md:backdrop-blur-md border border-white/5 p-5 rounded-sm flex items-center gap-4 hover:bg-white/[0.06] transition-colors duration-300 min-h-[90px]">
     <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 shrink-0">
       <iconify-icon icon="solar:graph-new-up-bold-duotone" class="text-xl"></iconify-icon>
     </div>
@@ -130,7 +130,7 @@ const FaqSection = () => {
             className="leading-[1.1] md:text-5xl lg:text-7xl text-4xl font-medium text-white tracking-tight mb-6"
           />
 
-          <p className="text-lg text-white/50 font-light leading-relaxed scroll-reveal delay-200">
+          <p className="text-lg text-white/50 font-light leading-relaxed scroll-reveal reveal-delay-200">
             Code lives in your repository. Deploys to your infrastructure. Documented and handed off so your team can operate it. Most clients keep us on as their ongoing AI department; the work is yours either way.
           </p>
         </div>

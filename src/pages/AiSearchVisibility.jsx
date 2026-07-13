@@ -39,19 +39,19 @@ function AiSearchVisibility() {
               <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
               <span className="text-[10px] font-mono uppercase tracking-widest text-purple-200/90">Service / AI Search Visibility</span>
             </div>
-            <h1 className="leading-[1.04] animate-reveal delay-100 text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight mb-8">
+            <h1 className="leading-[1.04] animate-reveal reveal-delay-100 text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight mb-8">
               When buyers ask AI,
               <span className="text-white/30"> does your brand come up?</span>
             </h1>
-            <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-xl mb-9 animate-reveal delay-200">
+            <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-xl mb-9 animate-reveal reveal-delay-200">
               When someone asks ChatGPT or Gemini about your brand, you do not control what comes back. We find out what the engines actually say about you, fix what is wrong, and re-measure at 30 days so you can see it move.
             </p>
-            <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-wider bg-white text-black py-4 px-6 rounded-sm transition-all duration-300 hover:shadow-[0_0_30px_-8px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 animate-reveal delay-300">
+            <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-wider bg-white text-black py-4 px-6 rounded-sm transition-[transform,box-shadow] duration-300 ease-swift hover:shadow-[0_0_30px_-8px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 active:scale-[0.97] animate-reveal reveal-delay-300">
               <span>Get your visibility baseline</span>
               <iconify-icon icon="solar:arrow-right-linear" class="text-base group-hover:translate-x-1 transition-transform duration-300"></iconify-icon>
             </a>
           </div>
-          <div className="lg:col-span-6 xl:col-span-5 animate-reveal delay-200">
+          <div className="lg:col-span-6 xl:col-span-5 animate-reveal reveal-delay-200">
             <MentionBars />
           </div>
         </div>
@@ -65,7 +65,7 @@ function AiSearchVisibility() {
       <Section title="The method is the differentiator" lede="Every AEO vendor runs roughly the same pipeline. Almost none of them publish their confidence intervals or their measurement conditions. We do." size="display" beamDelay={2}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
           {method.map((m, i) => (
-            <div key={m.k} className="card-surface rounded-sm p-6 lg:p-8 scroll-reveal" style={{ transitionDelay: `${(i % 2) * 90}ms` }}>
+            <div key={m.k} className="card-surface rounded-sm p-6 lg:p-8 scroll-reveal" style={{ animationDelay: `${(i % 2) * 90}ms` }}>
               <div className="relative z-10">
                 <h3 className="text-base lg:text-lg font-medium text-white tracking-tight mb-2">{m.k}</h3>
                 <p className="text-sm text-white/60 font-light leading-relaxed">{m.v}</p>

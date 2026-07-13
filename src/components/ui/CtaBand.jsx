@@ -16,8 +16,8 @@ function CtaBand({
       </div>
 
       <div className="max-w-[1100px] mx-auto relative z-10">
-        <div className="card-surface rounded-sm p-8 lg:px-12 lg:py-14 flex flex-col items-center justify-center gap-6 relative group transition-all duration-500">
-          <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(120,60,220,0.18)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:0_0,0_0] transition-all duration-1000 group-hover:bg-[position:100%_100%,0_0] z-0"></div>
+        <div className="card-surface rounded-sm p-8 lg:px-12 lg:py-14 flex flex-col items-center justify-center gap-6 relative group">
+          <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(120,60,220,0.18)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:0_0,0_0] transition-[background-position] duration-1000 group-hover:bg-[position:100%_100%,0_0] z-0"></div>
 
           <div className="relative z-10 text-center max-w-2xl">
             <h2 className="text-3xl lg:text-4xl font-medium text-white tracking-tight mb-3">{heading}</h2>
@@ -28,7 +28,7 @@ function CtaBand({
             href={ctaHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative z-10 bg-white text-black pl-8 pr-6 py-4 rounded-sm font-semibold text-xs uppercase tracking-widest hover:bg-purple-50 transition-all transform flex items-center gap-4 group/btn"
+            className="relative z-10 bg-white text-black pl-8 pr-6 py-4 rounded-sm font-semibold text-xs uppercase tracking-widest hover:bg-purple-50 transition-[color,background-color,border-color,transform,box-shadow] duration-300 ease-swift active:scale-[0.97] flex items-center gap-4 group/btn"
           >
             {ctaLabel}
             <div className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center group-hover/btn:scale-110 transition-transform">

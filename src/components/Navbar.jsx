@@ -14,7 +14,8 @@ const services = [
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [servicesOpen, setServicesOpen] = useState(false)
+  const [servicesState, setServicesState] = useState('closed') // 'closed' | 'open' | 'closing'
+  const servicesOpen = servicesState !== 'closed'          // keeps aria-expanded + solid nav logic working
   const [scrolled, setScrolled] = useState(false)
   const [menuPos, setMenuPos] = useState(null)
   const { pathname } = useLocation()
@@ -26,13 +27,31 @@ const Navbar = () => {
   // escape the nav's stacking context (an absolute descendant of the fixed nav gets
   // painted under page content; a fixed element on body does not — same reason the mobile
   // overlay works). The button lives in the fixed navbar, so its position is stable on scroll.
-  const toggleServices = () => {
-    if (!servicesOpen && btnRef.current) {
+  const openServices = () => {
+    if (btnRef.current) {
       const r = btnRef.current.getBoundingClientRect()
       setMenuPos({ left: r.left + r.width / 2, top: r.bottom + 14 })
     }
-    setServicesOpen((v) => !v)
+    setServicesState('open')
   }
+
+  // Pure updater — safe under StrictMode double-invocation AND under the stale closures
+  // in the []-dep outside-click/Escape effect (no current-state read needed here).
+  const closeServices = () => {
+    setServicesState((s) => (s === 'open' ? 'closing' : s))
+  }
+
+  // The exit timer lives in an effect keyed on the state itself: entering 'closing'
+  // schedules it, leaving 'closing' (reopen mid-close) cleans it up — no orphan timers.
+  useEffect(() => {
+    if (servicesState !== 'closing') return
+    const t = setTimeout(() => {
+      setServicesState((s) => (s === 'closing' ? 'closed' : s))
+    }, 160)
+    return () => clearTimeout(t)
+  }, [servicesState])
+
+  const toggleServices = () => (servicesState === 'open' ? closeServices() : openServices())
 
   // Detect scroll past hero threshold so navbar can transition transparent -> solid
   useEffect(() => {
@@ -64,10 +83,10 @@ const Navbar = () => {
     const onClick = (e) => {
       const inBtn = servicesRef.current && servicesRef.current.contains(e.target)
       const inPanel = panelRef.current && panelRef.current.contains(e.target)
-      if (!inBtn && !inPanel) setServicesOpen(false)
+      if (!inBtn && !inPanel) closeServices()
     }
     const onKey = (e) => {
-      if (e.key === 'Escape') setServicesOpen(false)
+      if (e.key === 'Escape') closeServices()
     }
     document.addEventListener('mousedown', onClick)
     document.addEventListener('keydown', onKey)
@@ -77,7 +96,7 @@ const Navbar = () => {
     }
   }, [])
   useEffect(() => {
-    setServicesOpen(false)
+    closeServices()
     setMobileMenuOpen(false)
   }, [pathname])
 
@@ -86,7 +105,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-[100] w-full h-[100px] flex items-center justify-between px-6 lg:px-[6%] animate-reveal transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-[100] w-full h-[100px] flex items-center justify-between px-6 lg:px-[6%] animate-reveal transition-[background-color,border-color,backdrop-filter] duration-300 ${
           solid
             ? 'border-b border-white/5 bg-[#0a051e]/80 backdrop-blur-md'
             : 'border-b border-transparent bg-transparent backdrop-blur-0'
@@ -104,10 +123,10 @@ const Navbar = () => {
               ref={btnRef}
               onClick={toggleServices}
               className="flex items-center gap-1.5 uppercase hover:text-white transition-colors outline-none"
-              aria-expanded={servicesOpen}
+              aria-expanded={servicesState === 'open'}
             >
               Services
-              <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${servicesState === 'open' ? 'rotate-180' : ''}`} />
             </button>
           </div>
 
@@ -117,16 +136,20 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="group relative hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-white text-black py-2.5 px-5 rounded-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_24px_-6px_rgba(168,85,247,0.6)] hover:-translate-y-0.5">
+          <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="group relative hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-white text-black py-2.5 px-5 rounded-sm overflow-hidden transition-[transform,box-shadow] duration-300 ease-swift hover:shadow-[0_0_24px_-6px_rgba(168,85,247,0.6)] hover:-translate-y-0.5 active:scale-[0.97]">
             <span className="absolute inset-0 bg-gradient-to-r from-purple-200 via-purple-100 to-purple-200 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" aria-hidden="true"></span>
             <span className="relative">Book an intro call</span>
           </a>
+          {/* Toggles (not just opens): the nav sits at z-[100] above the z-[60] overlay, so a
+              close button inside the overlay is unreachable under the nav strip — this button
+              is the one control that is always tappable, so it owns both states. */}
           <button
-            onClick={() => setMobileMenuOpen(true)}
+            onClick={() => setMobileMenuOpen((v) => !v)}
             className="md:hidden text-white/70 hover:text-white transition-colors outline-none"
-            aria-label="Open menu"
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
           >
-            <Menu className="w-6 h-6" />
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </nav>
@@ -137,6 +160,7 @@ const Navbar = () => {
           <div style={{ position: 'fixed', left: menuPos.left, top: menuPos.top, transform: 'translateX(-50%)' }} className="z-[9999]">
             <div
               ref={panelRef}
+              data-state={servicesState}
               className="dropdown-panel w-[320px] rounded-md border border-white/15 bg-[#140b35] shadow-2xl shadow-purple-950/60 ring-1 ring-black/40 p-2"
             >
               {services.map((s) => (
@@ -155,16 +179,12 @@ const Navbar = () => {
         )}
 
       {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-[60] bg-[#0a051e]/95 backdrop-blur-xl flex flex-col pt-28 px-8 animate-reveal overflow-y-auto">
-          <button
-            onClick={() => setMobileMenuOpen(false)}
-            className="absolute top-8 right-6 text-white/70 hover:text-white outline-none"
-            aria-label="Close menu"
-          >
-            <X className="w-8 h-8" />
-          </button>
-
+      <div
+        className={`md:hidden fixed inset-0 z-[60] bg-[#0a051e]/95 backdrop-blur-xl flex flex-col pt-28 px-8 overflow-y-auto
+          transition-[opacity,transform,visibility] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
+          motion-reduce:transition-none motion-reduce:translate-y-0
+          ${mobileMenuOpen ? 'visible opacity-100 translate-y-0' : 'invisible opacity-0 -translate-y-3'}`}
+      >
           <p className="text-[10px] font-mono uppercase tracking-widest text-white/40 mb-4">Services</p>
           <nav className="flex flex-col gap-4 mb-8">
             {services.map((s) => (
@@ -182,12 +202,11 @@ const Navbar = () => {
           </nav>
 
           <div className="mt-auto py-12">
-            <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="flex w-full items-center justify-center gap-2 text-sm font-bold uppercase tracking-wider bg-white text-black py-4 rounded-sm hover:bg-purple-50 transition-colors">
+            <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="flex w-full items-center justify-center gap-2 text-sm font-bold uppercase tracking-wider bg-white text-black py-4 rounded-sm hover:bg-purple-50 transition-[color,background-color,transform] duration-150 ease-swift active:scale-[0.97]">
               Book an intro call
             </a>
           </div>
         </div>
-      )}
     </>
   )
 }

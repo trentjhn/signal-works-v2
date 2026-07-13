@@ -58,11 +58,11 @@ function Work() {
             <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
             <span className="text-[10px] font-mono uppercase tracking-widest text-purple-200/90">Our work / measured</span>
           </div>
-          <h1 className="leading-[1.04] animate-reveal delay-100 text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight mb-8 max-w-4xl">
+          <h1 className="leading-[1.04] animate-reveal reveal-delay-100 text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight mb-8 max-w-4xl">
             Proof, not promises.
             <span className="text-white/30"> We measure our own work the way we measure yours.</span>
           </h1>
-          <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-2xl animate-reveal delay-200">
+          <p className="text-base lg:text-lg text-white/60 font-light leading-relaxed max-w-2xl animate-reveal reveal-delay-200">
             We are an early team and we would rather show you one real, measured result than a wall of logos. Here is the work, reported the same honest way we would report yours.
           </p>
         </div>
