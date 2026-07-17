@@ -4,6 +4,7 @@ import Features from '../components/Features'
 import AeoFeature from '../components/AeoFeature'
 import Validation from '../components/Validation'
 import TestimonialsMarquee from '../components/TestimonialsMarquee'
+import ClientReview from '../components/ClientReview'
 import FaqSection from '../components/FaqSection'
 import FinalCta from '../components/FinalCta'
 import SectionDivider from '../components/ui/SectionDivider'
@@ -41,6 +42,9 @@ function Home() {
       {/* 5. What we believe (floating wall) */}
       <FaqSection />
       <SectionDivider delay={1.5} duration={9} />
+      {/* 5.5 Verified client review — proof right before the ask */}
+      <ClientReview />
+      <SectionDivider delay={0.5} duration={10} />
       {/* 6. Final CTA — Book nav target */}
       <div id="book" className="scroll-mt-[100px]">
         <FinalCta />

@@ -85,7 +85,7 @@ const useScramble = (text, { duration = 700, delay = 0, enabled = true, trigger 
   return output
 }
 
-const marqueeLogos = ['Casa Mate Tequila', 'LA Metro', 'WriterBoyFilms', 'Gusdorf Marketing Group']
+const marqueeLogos = ['Casa Mate Tequila', 'LA Metro', 'WriterBoyFilms', 'Gusdorf Marketing Group', 'Integrity Decks & Restoration']
 
 const Hero = () => {
   const revealRefs = useRef([])
