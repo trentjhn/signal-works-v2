@@ -1,9 +1,6 @@
 import React from 'react'
 import { Sparkles, Database } from 'lucide-react'
 import FlashlightCard from './ui/FlashlightCard'
-import BrandImage from './ui/BrandImage'
-import streakRise from '../assets/img/streak-rise.webp'
-import streakScatter from '../assets/img/streak-scatter.webp'
 
 const Features = () => {
   return (
@@ -113,7 +110,23 @@ const Features = () => {
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%)', zIndex: 0 }}></div>
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%)', zIndex: 0, WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', padding: '1px' }}></div>
 
-            <BrandImage src={streakRise} alt="" className="relative z-10 h-40 mb-8" imgClassName="object-center" />
+            {/* Mini dashboard vignette — same crafted-mockup family as Card 1's browser frame. */}
+            <div className="h-40 mb-8 relative flex items-center justify-center bg-black/20 rounded-sm border border-white/5 overflow-hidden z-10">
+              <div className="w-2/3 p-4 border border-white/10 bg-[#0e0829] rounded-sm shadow-2xl transform group-hover:-translate-y-1 transition-transform duration-500">
+                <div className="flex items-center justify-between mb-3 opacity-60">
+                  <div className="h-1 w-1/4 bg-white/20 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></div>
+                </div>
+                <div className="flex items-end gap-1.5 h-10">
+                  <div className="w-full h-[35%] bg-white/10 rounded-sm"></div>
+                  <div className="w-full h-[55%] bg-white/10 rounded-sm"></div>
+                  <div className="w-full h-[40%] bg-white/10 rounded-sm"></div>
+                  <div className="w-full h-[75%] bg-purple-500/40 rounded-sm"></div>
+                  <div className="w-full h-[60%] bg-white/10 rounded-sm"></div>
+                  <div className="w-full h-[90%] bg-purple-500/60 rounded-sm"></div>
+                </div>
+              </div>
+            </div>
             <div className="mt-auto relative z-10">
               <h3 className="text-xl font-medium text-white mb-3 tracking-tight">Intelligence Systems &amp; Custom Software</h3>
               <p className="text-sm text-white/50 font-light leading-relaxed max-w-md">
@@ -127,7 +140,11 @@ const Features = () => {
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%)', zIndex: 0 }}></div>
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%)', zIndex: 0, WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', padding: '1px' }}></div>
 
-            <BrandImage src={streakScatter} alt="" className="relative z-10 h-40 mb-8" imgClassName="object-[center_65%]" />
+            {/* Dot-grid + glyph vignette — mirrors Card 3's Knowledge Systems treatment. */}
+            <div className="h-40 mb-8 relative flex items-center justify-center overflow-hidden z-10">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+              <iconify-icon icon="solar:shield-check-bold-duotone" class="text-6xl text-white/20 group-hover:text-purple-400/80 transition-colors duration-500"></iconify-icon>
+            </div>
             <div className="mt-auto relative z-10">
               <h3 className="text-xl font-medium text-white mb-3 tracking-tight">AI Security &amp; Governance</h3>
               <p className="text-sm text-white/50 font-light leading-relaxed max-w-md">
