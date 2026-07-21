@@ -200,10 +200,10 @@ const Hero = () => {
             href="https://calendly.com/hello-signalworks"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-3 text-xs font-bold uppercase tracking-wider bg-white text-black py-4 px-6 rounded-sm overflow-hidden transition-[transform,box-shadow] duration-300 ease-swift hover:shadow-[0_0_30px_-8px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 active:scale-[0.97]"
+            className="group relative inline-flex items-center gap-3 text-xs font-bold uppercase tracking-wider bg-white text-black py-4 px-6 rounded-sm overflow-hidden transition-[transform,box-shadow] duration-300 active:duration-150 ease-swift hover:shadow-[0_0_30px_-8px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 active:scale-[0.97]"
           >
             {/* Sliding purple sheen on hover */}
-            <span className="absolute inset-0 bg-gradient-to-r from-purple-200 via-purple-100 to-purple-200 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" aria-hidden="true"></span>
+            <span className="absolute inset-0 bg-gradient-to-r from-purple-200 via-purple-100 to-purple-200 -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-swift" aria-hidden="true"></span>
             <span className="relative">Book an intro call</span>
             <iconify-icon icon="solar:arrow-right-linear" class="relative text-base group-hover:translate-x-1 transition-transform duration-300"></iconify-icon>
           </a>
@@ -216,8 +216,8 @@ const Hero = () => {
           <span className="w-8 h-px bg-white/20"></span>
           Trusted by
         </div>
-        <div className="relative max-w-md lg:max-w-lg overflow-hidden marquee-mask group/marq" style={{ height: '40px' }}>
-          <div className="flex items-center w-max animate-marquee group-hover/marq:[animation-play-state:paused] gap-12" style={{ animationDuration: '60s' }}>
+        <div className="relative max-w-md lg:max-w-lg overflow-hidden marquee-mask group/marq" style={{ height: '40px' }} data-motion-scope="">
+          <div className="flex items-center w-max animate-marquee group-hover/marq:[animation-play-state:paused] gap-12">
             {[...marqueeLogos, ...marqueeLogos, ...marqueeLogos, ...marqueeLogos].map((name, idx) => (
               <span
                 key={idx}

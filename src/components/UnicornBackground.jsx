@@ -16,7 +16,10 @@ const UnicornBackground = () => {
     // (see the <Scene> props) so the GPU cost stays a fraction of desktop's.
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const saveData = navigator.connection?.saveData === true
-    if (reduceMotion || saveData) return
+    // Low-memory devices keep the static gradient — Save-Data catches metered intent,
+    // deviceMemory catches weak hardware (reports 4GB or less on constrained phones).
+    const lowEnd = typeof navigator.deviceMemory === 'number' && navigator.deviceMemory < 4
+    if (reduceMotion || saveData || lowEnd) return
 
     const desktop = window.matchMedia('(min-width: 768px)').matches
     setMobile(!desktop)

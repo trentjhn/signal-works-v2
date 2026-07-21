@@ -46,9 +46,29 @@ const SwipeableMarquee = ({ children, speed = 0.3, mobileSpeed = null, briefPaus
       }
       rafRef.current = requestAnimationFrame(tick)
     }
-    rafRef.current = requestAnimationFrame(tick)
+
+    // Only run the rAF loop while the marquee is on-screen — rAF pauses on hidden
+    // tabs but not for scrolled-past elements, so gate it ourselves.
+    const startLoop = () => {
+      if (rafRef.current == null) {
+        lastTimestampRef.current = null
+        rafRef.current = requestAnimationFrame(tick)
+      }
+    }
+    const stopLoop = () => {
+      if (rafRef.current != null) {
+        cancelAnimationFrame(rafRef.current)
+        rafRef.current = null
+      }
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => (entry.isIntersecting ? startLoop() : stopLoop()),
+      { rootMargin: '80px 0px' }
+    )
+    if (scrollRef.current) io.observe(scrollRef.current)
     return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+      io.disconnect()
+      stopLoop()
       lastTimestampRef.current = null
     }
   }, [speed, mobileSpeed])

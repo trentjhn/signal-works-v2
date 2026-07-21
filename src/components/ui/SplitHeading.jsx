@@ -43,7 +43,7 @@ const SplitHeading = ({
             className="inline-block transition-[opacity,transform] duration-700"
             style={{
               transitionProperty: reduceMotion ? 'none' : undefined,
-              transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+              transitionTimingFunction: 'var(--ease-swift)',
               transitionDelay: `${idx * wordStagger}ms`,
               opacity: isVisible ? 1 : 0,
               transform: reduceMotion ? 'none' : (isVisible ? 'translateY(0)' : 'translateY(28px)'),

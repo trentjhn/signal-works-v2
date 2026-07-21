@@ -4,7 +4,7 @@ import FlashlightCard from './ui/FlashlightCard'
 
 const Features = () => {
   return (
-    <section className="z-10 lg:py-32 bg-indigo-950/20 w-full border-white/5 border-t pt-24 pb-24 relative">
+    <section className="z-10 lg:py-32 bg-indigo-950/20 w-full border-white/5 border-t pt-24 pb-24 relative" data-motion-scope="">
       
       {/* Background Grid & Beams */}
       <div className="absolute inset-0 pointer-events-none hidden lg:block z-0">
@@ -43,7 +43,7 @@ const Features = () => {
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%)', zIndex: 0, WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', padding: '1px' }}></div>
             
             <div className="h-48 mb-8 relative flex items-center justify-center bg-black/20 rounded-sm border border-white/5 overflow-hidden z-10">
-              <div className="w-3/4 p-4 border border-white/10 bg-[#0e0829] rounded-sm shadow-2xl transform group-hover:-translate-y-1 transition-transform duration-500">
+              <div className="w-3/4 p-4 border border-white/10 bg-[#0e0829] rounded-sm shadow-2xl transform group-hover:-translate-y-1 transition-transform duration-200 ease-swift">
                 <div className="flex gap-1.5 mb-3 opacity-50">
                   <div className="w-1 h-1 rounded-full bg-white"></div>
                   <div className="w-1 h-1 rounded-full bg-white"></div>
@@ -72,7 +72,7 @@ const Features = () => {
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%)', zIndex: 0, WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', padding: '1px' }}></div>
             
             <div className="h-48 mb-8 relative flex items-center justify-center overflow-hidden z-10">
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-swift"></div>
               <div className="relative z-10 grid grid-cols-2 gap-4 opacity-60 group-hover:opacity-100 transition-opacity">
                 <div className="bg-white/5 border-white/5 border rounded p-3 flex items-center justify-center"><iconify-icon icon="cib:google-cloud" class="text-2xl text-white"></iconify-icon></div>
                 <div className="bg-white/5 border-white/5 border rounded p-3 flex items-center justify-center"><iconify-icon icon="cib:amazon-aws" class="text-2xl text-white"></iconify-icon></div>
@@ -95,7 +95,7 @@ const Features = () => {
 
             <div className="h-48 mb-8 relative flex items-center justify-center overflow-hidden z-10">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
-              <iconify-icon icon="solar:library-bold-duotone" class="text-6xl text-white/20 group-hover:text-purple-400/80 transition-colors duration-500"></iconify-icon>
+              <iconify-icon icon="solar:library-bold-duotone" class="text-6xl text-white/20 group-hover:text-purple-400/80 transition-colors duration-300"></iconify-icon>
             </div>
             <div className="relative z-10">
               <h3 className="text-lg font-medium text-white mb-3 tracking-tight">Knowledge Systems</h3>
@@ -143,7 +143,7 @@ const Features = () => {
             {/* Dot-grid + glyph vignette — mirrors Card 3's Knowledge Systems treatment. */}
             <div className="h-40 mb-8 relative flex items-center justify-center overflow-hidden z-10">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:16px_16px]"></div>
-              <iconify-icon icon="solar:shield-check-bold-duotone" class="text-6xl text-white/20 group-hover:text-purple-400/80 transition-colors duration-500"></iconify-icon>
+              <iconify-icon icon="solar:shield-check-bold-duotone" class="text-6xl text-white/20 group-hover:text-purple-400/80 transition-colors duration-300"></iconify-icon>
             </div>
             <div className="mt-auto relative z-10">
               <h3 className="text-xl font-medium text-white mb-3 tracking-tight">AI Security &amp; Governance</h3>

@@ -11,6 +11,9 @@
   --gy-1: 100px;
   --gy-2: 62vh;
   --gy-3: 94vh;
+  /* The house easing curve. Same value as Tailwind's `ease-swift` (tailwind.config.js) —
+     that config literal can't reference a CSS var, so these two are the only copies. */
+  --ease-swift: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 body {
@@ -66,7 +69,7 @@ body {
 
 .animate-reveal {
   opacity: 0;
-  animation: reveal-up 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: reveal-up 0.65s var(--ease-swift) forwards;
 }
 
 @keyframes scroll-reveal-in {
@@ -80,33 +83,40 @@ body {
 
 .scroll-reveal.is-visible {
   opacity: 1;
-  animation: scroll-reveal-in 1s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation: scroll-reveal-in 0.65s var(--ease-swift) backwards;
 }
 
 /* Reveal stagger. Renamed from .delay-* — those names collide with Tailwind's built-in
-   transition-delay utilities, which is exactly the hover-lag bug this plan removes. */
-.reveal-delay-100 { animation-delay: 0.1s; }
-.reveal-delay-200 { animation-delay: 0.2s; }
-.reveal-delay-300 { animation-delay: 0.3s; }
-.reveal-delay-500 { animation-delay: 0.5s; }
+   transition-delay utilities, which is exactly the hover-lag bug this plan removes.
+   Class names are step labels, not milliseconds — values tightened (animations-improve
+   audit) so staggered content stops trailing the scroll. */
+.reveal-delay-100 { animation-delay: 0.08s; }
+.reveal-delay-200 { animation-delay: 0.16s; }
+.reveal-delay-300 { animation-delay: 0.24s; }
+.reveal-delay-500 { animation-delay: 0.4s; }
 
-/* Beams */
+/* Beams — animate transform (compositor) rather than left/top (main-thread layout).
+   The element sits at a fixed -200px offset and translates across the container.
+   Travel distance is viewport-based: exact for full-bleed lines and GlobalGrid;
+   inside sections taller than the viewport a beam covers the first ~100vh, which
+   combined with the off-screen pause below is visually equivalent. */
 @keyframes beam-h {
-  0% { left: -200px; opacity: 0; }
+  0% { transform: translateX(0); opacity: 0; }
   10% { opacity: 1; }
   90% { opacity: 1; }
-  100% { left: 100%; opacity: 0; }
+  100% { transform: translateX(calc(100vw + 200px)); opacity: 0; }
 }
 
 @keyframes beam-v {
-  0% { top: -200px; opacity: 0; }
+  0% { transform: translateY(0); opacity: 0; }
   10% { opacity: 1; }
   90% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
+  100% { transform: translateY(calc(100vh + 200px)); opacity: 0; }
 }
 
 .beam-h {
   position: absolute;
+  left: -200px;
   height: 1px;
   width: 200px;
   background: linear-gradient(90deg, transparent, #a855f7, transparent);
@@ -115,11 +125,26 @@ body {
 }
 .beam-v {
   position: absolute;
+  top: -200px;
   width: 1px;
   height: 200px;
   background: linear-gradient(180deg, transparent, #a855f7, transparent);
   z-index: 10;
   opacity: 0;
+}
+
+/* Off-screen pause: sections opt in with data-motion-scope; Layout.jsx toggles
+   .motion-live as they enter/leave the viewport, so infinite ambient animations
+   only burn frames while visible. GlobalGrid's fixed beams never pause (always visible). */
+[data-motion-scope] .beam-h,
+[data-motion-scope] .beam-v,
+[data-motion-scope] .animate-marquee {
+  animation-play-state: paused;
+}
+[data-motion-scope].motion-live .beam-h,
+[data-motion-scope].motion-live .beam-v,
+[data-motion-scope].motion-live .animate-marquee {
+  animation-play-state: running;
 }
 
 /* Marquee */
@@ -129,22 +154,10 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee-scroll 30s linear infinite;
+  animation: marquee-scroll 60s linear infinite;
   will-change: transform;
 }
 .animate-marquee:hover {
-  animation-play-state: paused;
-}
-
-@keyframes marquee-scroll-slow {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee-slow {
-  animation: marquee-scroll-slow 80s linear infinite;
-}
-.animate-marquee-slow:hover {
   animation-play-state: paused;
 }
 
@@ -163,7 +176,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.10);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
   overflow: hidden;
-  transition: border-color 400ms cubic-bezier(0.16, 1, 0.3, 1), background-image 400ms ease;
+  transition: border-color 400ms var(--ease-swift);
 }
 .card-surface::before {
   content: "";
@@ -189,7 +202,7 @@ body {
 /* Dropdown — descends from just under the trigger (top-down), not the bottom-up reveal-up */
 .dropdown-panel {
   transform-origin: top center;
-  transition: opacity 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 200ms var(--ease-swift), transform 200ms var(--ease-swift);
   opacity: 1;
   transform: translateY(0) scale(1);
 }
@@ -220,7 +233,7 @@ body {
 }
 .bar-grow.is-grown {
   transform: scaleX(1);
-  animation: bar-grow 900ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation: bar-grow 900ms var(--ease-swift) backwards;
 }
 
 /* Border Gradient Style */
@@ -273,7 +286,7 @@ body {
   .bar-grow { animation: none; transform: scaleX(1); }
 
   /* Ambient motion stops entirely */
-  .animate-marquee, .animate-marquee-slow { animation: none; }
+  .animate-marquee { animation: none; }
   .beam-h, .beam-v { animation: none !important; }
 
   /* Dropdown appears instantly (still functional) */

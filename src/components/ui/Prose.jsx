@@ -18,7 +18,7 @@ const headingSize = {
 // size="display" gives homepage-scale headers; "standard" is for long-form body sections.
 export function Section({ title, lede, children, divider = true, glow = false, size = 'standard', beamDelay = 0, className = '' }) {
   return (
-    <section className={`relative w-full py-16 lg:py-24 overflow-hidden ${className}`}>
+    <section className={`relative w-full py-16 lg:py-24 overflow-hidden ${className}`} data-motion-scope="">
       {/* Animated beam on the top border + ambient vertical rules */}
       {divider && (
         <div className="absolute top-0 left-0 right-0 h-px bg-white/5 overflow-hidden">

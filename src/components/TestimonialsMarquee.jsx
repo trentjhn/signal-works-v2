@@ -62,7 +62,7 @@ const TestimonialsMarquee = () => {
                     <img
                       src={f.photo}
                       alt={f.name}
-                      className="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-[filter] duration-300 ease-swift"
+                      className="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-[filter] duration-400 ease-swift"
                     />
                   ) : (
                     <>

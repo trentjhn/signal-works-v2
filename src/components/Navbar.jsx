@@ -126,7 +126,7 @@ const Navbar = () => {
               aria-expanded={servicesState === 'open'}
             >
               Services
-              <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${servicesState === 'open' ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 transition-transform duration-200 ease-swift ${servicesState === 'open' ? 'rotate-180' : ''}`} />
             </button>
           </div>
 
@@ -136,8 +136,8 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="group relative hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-white text-black py-2.5 px-5 rounded-sm overflow-hidden transition-[transform,box-shadow] duration-300 ease-swift hover:shadow-[0_0_24px_-6px_rgba(168,85,247,0.6)] hover:-translate-y-0.5 active:scale-[0.97]">
-            <span className="absolute inset-0 bg-gradient-to-r from-purple-200 via-purple-100 to-purple-200 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" aria-hidden="true"></span>
+          <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="group relative hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-white text-black py-2.5 px-5 rounded-sm overflow-hidden transition-[transform,box-shadow] duration-300 active:duration-150 ease-swift hover:shadow-[0_0_24px_-6px_rgba(168,85,247,0.6)] hover:-translate-y-0.5 active:scale-[0.97]">
+            <span className="absolute inset-0 bg-gradient-to-r from-purple-200 via-purple-100 to-purple-200 -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-swift" aria-hidden="true"></span>
             <span className="relative">Book an intro call</span>
           </a>
           {/* Toggles (not just opens): the nav sits at z-[100] above the z-[60] overlay, so a
@@ -149,7 +149,11 @@ const Navbar = () => {
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {/* Crossfade + quarter-turn between the two icons instead of a hard swap */}
+            <span className="relative block w-6 h-6" aria-hidden="true">
+              <Menu className={`absolute inset-0 w-6 h-6 transition-[opacity,transform] duration-200 ease-swift motion-reduce:transition-none ${mobileMenuOpen ? 'opacity-0 rotate-90 scale-75' : 'opacity-100 rotate-0 scale-100'}`} />
+              <X className={`absolute inset-0 w-6 h-6 transition-[opacity,transform] duration-200 ease-swift motion-reduce:transition-none ${mobileMenuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-75'}`} />
+            </span>
           </button>
         </div>
       </nav>
@@ -167,7 +171,7 @@ const Navbar = () => {
                 <Link
                   key={s.to}
                   to={s.to}
-                  className="group flex flex-col gap-0.5 rounded-sm px-4 py-3 hover:bg-white/[0.06] transition-colors"
+                  className="group flex flex-col gap-0.5 rounded-sm px-4 py-3 hover:bg-white/[0.06] transition-[color,background-color,transform] duration-150 ease-swift active:scale-[0.98]"
                 >
                   <span className="text-sm font-medium text-white/90 group-hover:text-white transition-colors">{s.label}</span>
                   <span className="text-[11px] font-light text-white/40">{s.desc}</span>
@@ -181,14 +185,19 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <div
         className={`md:hidden fixed inset-0 z-[60] bg-[#0a051e]/95 backdrop-blur-xl flex flex-col pt-28 px-8 overflow-y-auto
-          transition-[opacity,transform,visibility] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
+          transition-[opacity,transform,visibility] ease-swift
           motion-reduce:transition-none motion-reduce:translate-y-0
-          ${mobileMenuOpen ? 'visible opacity-100 translate-y-0' : 'invisible opacity-0 -translate-y-3'}`}
+          ${mobileMenuOpen ? 'visible opacity-100 translate-y-0 duration-300' : 'invisible opacity-0 -translate-y-3 duration-200'}`}
       >
           <p className="text-[10px] font-mono uppercase tracking-widest text-white/40 mb-4">Services</p>
           <nav className="flex flex-col gap-4 mb-8">
-            {services.map((s) => (
-              <Link key={s.to} to={s.to} className="text-xl font-medium tracking-tight text-white/90 hover:text-purple-400 transition-colors">
+            {services.map((s, i) => (
+              <Link
+                key={s.to}
+                to={s.to}
+                className={`text-xl font-medium tracking-tight text-white/90 hover:text-purple-400 active:scale-[0.98] transition-[color,opacity,transform] duration-300 ease-swift motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:translate-y-0 ${mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
+                style={{ transitionDelay: mobileMenuOpen ? `${60 + i * 40}ms` : '0ms' }}
+              >
                 {s.label}
               </Link>
             ))}
@@ -196,9 +205,20 @@ const Navbar = () => {
 
           <div className="h-px bg-white/10 mb-8" />
           <nav className="flex flex-col gap-5 text-xl font-medium tracking-tight">
-            <Link to="/work" className="hover:text-purple-400 transition-colors">Work</Link>
-            <Link to="/approach" className="hover:text-purple-400 transition-colors">Approach</Link>
-            <Link to="/about" className="hover:text-purple-400 transition-colors">About</Link>
+            {[
+              { to: '/work', label: 'Work' },
+              { to: '/approach', label: 'Approach' },
+              { to: '/about', label: 'About' },
+            ].map((l, i) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className={`hover:text-purple-400 active:scale-[0.98] transition-[color,opacity,transform] duration-300 ease-swift motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:translate-y-0 ${mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
+                style={{ transitionDelay: mobileMenuOpen ? `${60 + (services.length + i) * 40}ms` : '0ms' }}
+              >
+                {l.label}
+              </Link>
+            ))}
           </nav>
 
           <div className="mt-auto py-12">

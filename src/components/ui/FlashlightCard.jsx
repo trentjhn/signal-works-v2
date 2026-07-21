@@ -68,7 +68,7 @@ const FlashlightCard = ({ children, className = '', style = {}, tilt = true, ...
         // snapping, never animating, because the old list was transform+opacity only).
         // Reveal opacity is animation-driven by .scroll-reveal (plan 001) — not needed here.
         transition: tilt
-          ? 'transform 450ms cubic-bezier(0.16, 1, 0.3, 1), background-color 500ms cubic-bezier(0.16, 1, 0.3, 1), border-color 500ms cubic-bezier(0.16, 1, 0.3, 1)'
+          ? 'transform 450ms var(--ease-swift), background-color 250ms var(--ease-swift), border-color 250ms var(--ease-swift)'
           : style.transition,
         transformStyle: 'preserve-3d',
       }}

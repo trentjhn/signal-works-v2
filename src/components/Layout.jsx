@@ -37,6 +37,24 @@ function useScrollToTop(pathname) {
   }, [pathname])
 }
 
+// Pause ambient infinite animations (beams, marquees) while their section is off-screen.
+// Sections opt in via data-motion-scope; CSS holds them paused until .motion-live lands.
+// Unlike the reveal observer this one toggles both ways — leave the viewport, pause again.
+function useMotionScopes(pathname) {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle('motion-live', entry.isIntersecting)
+        })
+      },
+      { rootMargin: '80px 0px 80px 0px' }
+    )
+    document.querySelectorAll('[data-motion-scope]').forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [pathname])
+}
+
 // Shared chrome around every route. Background + navbar + footer stay mounted across
 // client navigation; only the <Outlet/> body swaps. The wrapper divs/classes match the
 // original single-page App exactly so the homepage DOM is unchanged.
@@ -44,6 +62,7 @@ function Layout() {
   const { pathname } = useLocation()
   useGlobalScrollReveal(pathname)
   useScrollToTop(pathname)
+  useMotionScopes(pathname)
 
   return (
     <>
