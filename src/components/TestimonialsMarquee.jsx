@@ -1,5 +1,8 @@
 import React from 'react'
 import FlashlightCard from './ui/FlashlightCard'
+import BrandImage from './ui/BrandImage'
+import laSkyline from '../assets/img/la-skyline-night.webp'
+import sfFog from '../assets/img/sf-fog-night.webp'
 
 const founders = [
   {
@@ -85,6 +88,23 @@ const TestimonialsMarquee = () => {
               </div>
             </FlashlightCard>
           ))}
+        </div>
+
+        {/* Where the founders work from — same treatment as the About diptych. */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 mb-12">
+          <BrandImage
+            src={laSkyline}
+            alt="The Los Angeles skyline and city lights at night"
+            label="Los Angeles"
+            className="h-36 lg:h-44 scroll-reveal"
+          />
+          <BrandImage
+            src={sfFog}
+            alt="The San Francisco skyline rising above the fog at night"
+            label="San Francisco Bay Area"
+            className="h-36 lg:h-44 scroll-reveal reveal-delay-100"
+            imgClassName="brightness-[0.68]"
+          />
         </div>
 
         {/* Single closing line */}

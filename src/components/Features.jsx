@@ -1,6 +1,9 @@
 import React from 'react'
-import { Sparkles, ScanSearch, MailCheck, Database } from 'lucide-react'
+import { Sparkles, Database } from 'lucide-react'
 import FlashlightCard from './ui/FlashlightCard'
+import BrandImage from './ui/BrandImage'
+import streakRise from '../assets/img/streak-rise.webp'
+import streakScatter from '../assets/img/streak-scatter.webp'
 
 const Features = () => {
   return (
@@ -110,9 +113,7 @@ const Features = () => {
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%)', zIndex: 0 }}></div>
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%)', zIndex: 0, WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', padding: '1px' }}></div>
 
-            <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-50 transition-opacity z-10">
-                <ScanSearch className="w-8 h-8 text-white" />
-            </div>
+            <BrandImage src={streakRise} alt="" className="relative z-10 h-40 mb-8" imgClassName="object-center" />
             <div className="mt-auto relative z-10">
               <h3 className="text-xl font-medium text-white mb-3 tracking-tight">Intelligence Systems &amp; Custom Software</h3>
               <p className="text-sm text-white/50 font-light leading-relaxed max-w-md">
@@ -126,9 +127,7 @@ const Features = () => {
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.06), transparent 40%)', zIndex: 0 }}></div>
             <div className="pointer-events-none absolute -inset-px rounded-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.4), transparent 40%)', zIndex: 0, WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', padding: '1px' }}></div>
 
-            <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-50 transition-opacity z-10">
-                <MailCheck className="w-8 h-8 text-white" />
-            </div>
+            <BrandImage src={streakScatter} alt="" className="relative z-10 h-40 mb-8" imgClassName="object-[center_65%]" />
             <div className="mt-auto relative z-10">
               <h3 className="text-xl font-medium text-white mb-3 tracking-tight">AI Security &amp; Governance</h3>
               <p className="text-sm text-white/50 font-light leading-relaxed max-w-md">
