@@ -246,6 +246,18 @@ body {
   animation: route-fade-in 240ms ease-out;
 }
 
+/* Touch devices have no hover, so BrandImage photos would stay grayscale forever.
+   Reveal color when the image (or the card containing it) scrolls into view instead —
+   the same moment the scroll-reveal fires. Hero images sit in animate-reveal
+   containers with no observer, so they get color immediately. */
+@media (hover: none) {
+  .brand-img.is-visible img,
+  .is-visible .brand-img img,
+  .animate-reveal .brand-img img {
+    filter: grayscale(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   body { animation: none; }
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 const GlobalGrid = () => {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none hidden lg:block h-screen">
+    <div className="fixed inset-0 z-0 pointer-events-none h-screen">
       <div className="grid-line-v" style={{ left: 'var(--gx-1)' }}></div>
       <div className="grid-line-v" style={{ left: 'var(--gx-2)' }}>
           <div className="beam-v" style={{ animation: 'beam-v 6s infinite 1s' }}></div>

@@ -6,22 +6,38 @@ const UnicornBackground = () => {
   // gradient below renders server-side and paints immediately, so the page still
   // looks finished even if the WebGL SDK is slow or fails to load.
   const [Scene, setScene] = useState(null)
+  const [mobile, setMobile] = useState(false)
 
   useEffect(() => {
-    // Only load the WebGL scene where it earns its weight: desktop, motion allowed, not
-    // data-saver. Mobile and constrained clients keep the static gradient above. The WebGL
-    // is ~360KB of assets plus heavy GPU/CPU cost and was the main drag on mobile LCP/TBT.
-    const desktop = window.matchMedia('(min-width: 768px)').matches
+    // Motion-off and data-saver clients keep the static gradient. Desktop loads the
+    // scene immediately. Mobile gets the scene too (it was the biggest desktop/mobile
+    // experience gap) but deferred until after the load event + a beat of idle so the
+    // ~360KB of WebGL never competes with LCP/TBT, and at reduced dpi/fps/scale
+    // (see the <Scene> props) so the GPU cost stays a fraction of desktop's.
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const saveData = navigator.connection?.saveData === true
-    if (!desktop || reduceMotion || saveData) return
+    if (reduceMotion || saveData) return
+
+    const desktop = window.matchMedia('(min-width: 768px)').matches
+    setMobile(!desktop)
 
     let active = true
-    import('unicornstudio-react').then((mod) => {
-      if (active) setScene(() => mod.default)
-    })
+    let timer
+    const load = () =>
+      import('unicornstudio-react').then((mod) => {
+        if (active) setScene(() => mod.default)
+      })
+
+    if (desktop) {
+      load()
+    } else {
+      const defer = () => { timer = setTimeout(load, 1200) }
+      if (document.readyState === 'complete') defer()
+      else window.addEventListener('load', defer, { once: true })
+    }
     return () => {
       active = false
+      clearTimeout(timer)
     }
   }, [])
 
@@ -50,6 +66,9 @@ const UnicornBackground = () => {
                 projectId="8G9qTlSBPboaCMb8UV64"
                 sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"
                 className="absolute w-full h-full left-0 top-0 -z-10"
+                scale={mobile ? 0.75 : 1}
+                dpi={mobile ? 1 : 1.5}
+                fps={mobile ? 30 : 60}
               />
             )}
           </div>

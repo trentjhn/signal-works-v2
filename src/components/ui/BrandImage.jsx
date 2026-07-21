@@ -4,10 +4,12 @@ import React from 'react'
 // rest, color on hover, plus a navy scrim so photos sit inside the site's dark world
 // instead of tearing a bright hole in it. Callers size the frame via className.
 // Responds to its own hover (group/img) and to a parent `group` (card media).
-// bordered=false for media bands that live inside an already-bordered card.
+// On touch devices (no hover) the color reveal fires on scroll-into-view instead —
+// see the `.brand-img` rules in index.css. bordered=false for media bands that live
+// inside an already-bordered card.
 function BrandImage({ src, alt, label, className = '', imgClassName = '', bordered = true }) {
   return (
-    <div className={`group/img relative overflow-hidden ${bordered ? 'rounded-sm border border-white/10' : ''} ${className}`}>
+    <div className={`brand-img group/img relative overflow-hidden ${bordered ? 'rounded-sm border border-white/10' : ''} ${className}`}>
       <img
         src={src}
         alt={alt}
