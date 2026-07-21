@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 import { Section } from '../components/ui/Prose'
 import CtaBand from '../components/ui/CtaBand'
 import RelatedLinks from '../components/ui/RelatedLinks'
+import BrandImage from '../components/ui/BrandImage'
 import { CALENDLY } from '../lib/constants'
+import laFreeway from '../assets/img/la-freeway-dusk.webp'
 
 const verticals = [
   { industry: 'Independent production and post houses', problem: 'Turning footage, scripts, and contracts into searchable, structured assets a small team can actually find.' },
@@ -44,8 +46,15 @@ function AiAgencyLosAngeles() {
             </p>
           </div>
           <div className="lg:col-span-5 animate-reveal reveal-delay-200">
-            <div className="card-surface rounded-sm p-7 lg:p-8">
-              <div className="relative z-10">
+            <div className="card-surface group rounded-sm">
+              <BrandImage
+                src={laFreeway}
+                alt="The 110 freeway leading into the Downtown Los Angeles skyline at night"
+                bordered={false}
+                className="relative z-10 h-44 lg:h-52 border-b border-white/10"
+                imgClassName="object-[center_38%]"
+              />
+              <div className="relative z-10 p-7 lg:p-8">
                 <p className="text-[10px] font-mono uppercase tracking-widest text-white/40 mb-5">Where we are</p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">

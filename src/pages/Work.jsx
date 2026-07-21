@@ -2,6 +2,10 @@ import React from 'react'
 import { Section } from '../components/ui/Prose'
 import CtaBand from '../components/ui/CtaBand'
 import RelatedLinks from '../components/ui/RelatedLinks'
+import BrandImage from '../components/ui/BrandImage'
+import streakRise from '../assets/img/streak-rise.webp'
+import streakDrift from '../assets/img/streak-drift.webp'
+import streakScatter from '../assets/img/streak-scatter.webp'
 
 // Dogfood result — measured on SignalWorks' own brand, fully shareable.
 const engines = [
@@ -12,19 +16,19 @@ const engines = [
 
 const capabilities = [
   {
-    icon: 'solar:graph-new-up-bold-duotone',
+    img: streakRise,
     tag: 'Intelligence system',
     title: 'A zero-hallucination governance dashboard',
     body: 'A daily digest that pulls five public government bodies into one view and refuses to report anything it cannot cite.',
   },
   {
-    icon: 'solar:magnifer-zoom-in-bold-duotone',
+    img: streakDrift,
     tag: 'AI search visibility',
     title: 'Our own AI-visibility measurement system',
     body: 'The tool we built to track how AI engines describe a brand across five engines, with real statistical confidence behind every number. It is what our search-visibility work runs on.',
   },
   {
-    icon: 'solar:inbox-archive-bold-duotone',
+    img: streakScatter,
     tag: 'Automation',
     title: 'A prospecting agent for a marketing firm',
     body: 'Maps the businesses around a client site and returns verified contacts on demand. The manual version took days.',
@@ -101,11 +105,14 @@ function Work() {
       <Section title="Some of the things we have built" beamDelay={2}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
           {capabilities.map((c) => (
-            <div key={c.title} className="card-surface rounded-sm p-6 lg:p-8 scroll-reveal">
-              <div className="relative z-10">
-                <div className="w-11 h-11 rounded-md bg-purple-500/12 border border-purple-400/20 flex items-center justify-center mb-5">
-                  <iconify-icon icon={c.icon} class="text-purple-300 text-xl"></iconify-icon>
-                </div>
+            <div key={c.title} className="card-surface group rounded-sm scroll-reveal">
+              <BrandImage
+                src={c.img}
+                alt=""
+                bordered={false}
+                className="relative z-10 h-36 lg:h-40 border-b border-white/10"
+              />
+              <div className="relative z-10 p-6 lg:p-8">
                 <p className="text-[10px] font-mono uppercase tracking-widest text-purple-300/60 mb-2">{c.tag}</p>
                 <h3 className="text-lg font-medium text-white tracking-tight mb-3">{c.title}</h3>
                 <p className="text-sm text-white/60 font-light leading-relaxed">{c.body}</p>

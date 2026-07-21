@@ -1,5 +1,6 @@
 import React from 'react'
 import { CALENDLY, EMAIL } from '../../lib/constants'
+import silkDark from '../../assets/img/silk-dark.webp'
 
 // The audit CTA band that closes every content page. Defaults to the visibility-baseline
 // framing; pages can override the copy. Visually matches the homepage FinalCta band.
@@ -17,6 +18,8 @@ function CtaBand({
 
       <div className="max-w-[1100px] mx-auto relative z-10">
         <div className="card-surface rounded-sm p-8 lg:px-12 lg:py-14 flex flex-col items-center justify-center gap-6 relative group">
+          {/* Silk texture, barely-there: gives the flat purple panel a physical surface. */}
+          <img src={silkDark} alt="" aria-hidden="true" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover opacity-[0.22] grayscale pointer-events-none z-0" />
           <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(120,60,220,0.18)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:0_0,0_0] transition-[background-position] duration-1000 group-hover:bg-[position:100%_100%,0_0] z-0"></div>
 
           <div className="relative z-10 text-center max-w-2xl">

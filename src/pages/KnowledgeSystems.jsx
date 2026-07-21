@@ -3,7 +3,9 @@ import { Section } from '../components/ui/Prose'
 import TypedSearch from '../components/ui/TypedSearch'
 import CtaBand from '../components/ui/CtaBand'
 import RelatedLinks from '../components/ui/RelatedLinks'
+import BrandImage from '../components/ui/BrandImage'
 import { CALENDLY } from '../lib/constants'
+import archiveShelves from '../assets/img/archive-shelves.webp'
 
 const sources = [
   { label: 'Slack', icon: 'cib:slack' },
@@ -63,9 +65,16 @@ function KnowledgeSystems() {
       </Section>
 
       <Section title="We already have Notion and a shared drive. Why is this better?" beamDelay={1}>
-        <p className="text-sm lg:text-base text-white/60 font-light leading-relaxed max-w-3xl scroll-reveal">
-          Those tools store knowledge. They do not answer across all of it at once, and they cannot tell a new hire how something is done without that person knowing exactly where to look. This sits on top of what you already have, reads across all of it, respects the permissions you have already set, and answers in plain language. You keep your tools. You just stop digging through them.
-        </p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+          <p className="text-sm lg:text-base text-white/60 font-light leading-relaxed scroll-reveal">
+            Those tools store knowledge. They do not answer across all of it at once, and they cannot tell a new hire how something is done without that person knowing exactly where to look. This sits on top of what you already have, reads across all of it, respects the permissions you have already set, and answers in plain language. You keep your tools. You just stop digging through them.
+          </p>
+          <BrandImage
+            src={archiveShelves}
+            alt="Dark shelves stacked with scattered books and papers"
+            className="h-52 lg:h-64 scroll-reveal reveal-delay-100"
+          />
+        </div>
       </Section>
 
       <Section title="Does it stay current, and is it secure?" beamDelay={3} glow>

@@ -3,6 +3,9 @@ import FlashlightCard from '../components/ui/FlashlightCard'
 import { Section } from '../components/ui/Prose'
 import CtaBand from '../components/ui/CtaBand'
 import RelatedLinks from '../components/ui/RelatedLinks'
+import BrandImage from '../components/ui/BrandImage'
+import laSkyline from '../assets/img/la-skyline-night.webp'
+import sfFog from '../assets/img/sf-fog-night.webp'
 
 const founders = [
   {
@@ -116,6 +119,24 @@ function About() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* The two cities, as evidence for the "Based in" fact above. Grayscale at rest,
+            color on hover — same treatment as the testimonial headshots. */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5">
+          <BrandImage
+            src={laSkyline}
+            alt="The Los Angeles skyline and city lights at night"
+            label="Los Angeles"
+            className="h-48 lg:h-60 scroll-reveal"
+          />
+          <BrandImage
+            src={sfFog}
+            alt="The San Francisco skyline rising above the fog at night"
+            label="San Francisco Bay Area"
+            className="h-48 lg:h-60 scroll-reveal reveal-delay-100"
+            imgClassName="brightness-[0.68]"
+          />
         </div>
       </Section>
 
