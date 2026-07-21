@@ -9,7 +9,7 @@ import archiveShelves from '../assets/img/archive-shelves.webp'
 
 const sources = [
   { label: 'Slack', icon: 'cib:slack' },
-  { label: 'Google Drive', icon: 'cib:google-drive' },
+  { label: 'Google Drive', icon: 'simple-icons:googledrive' },
   { label: 'Notion', icon: 'cib:notion' },
   { label: 'Confluence', icon: 'cib:confluence' },
   { label: 'Tickets', icon: 'solar:ticket-linear' },

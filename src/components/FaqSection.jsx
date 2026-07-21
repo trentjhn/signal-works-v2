@@ -15,7 +15,7 @@ const StatementCard = ({ children, accent = false }) => (
     }`}
   >
     <div className="text-purple-400/70">
-      <iconify-icon icon="solar:quote-up-square-bold-duotone" class="text-xl"></iconify-icon>
+      <iconify-icon icon="solar:chat-square-2-bold-duotone" class="text-xl"></iconify-icon>
     </div>
     <p className="text-sm text-white/85 font-light leading-relaxed">{children}</p>
   </div>

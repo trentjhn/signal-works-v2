@@ -10,7 +10,7 @@ import { CALENDLY } from '../lib/constants'
 const what = [
   { icon: 'solar:radar-bold-duotone', title: 'We measure what the engines say', body: 'We run your category and brand queries across ChatGPT, Perplexity, Gemini, Claude, and Google AI Overviews and record exactly how each one describes you.' },
   { icon: 'solar:bug-bold-duotone', title: 'We find what is wrong', body: 'Engines confuse you with competitors, invent details that were never real, or leave you out of the answer completely. We surface every miss.' },
-  { icon: 'solar:wrench-bold-duotone', title: 'We fix the inputs', body: 'We fix the entity signals, structured data, and source content the engines read, so the answers about you start to change.' },
+  { icon: 'solar:tuning-2-bold-duotone', title: 'We fix the inputs', body: 'We fix the entity signals, structured data, and source content the engines read, so the answers about you start to change.' },
   { icon: 'solar:graph-new-up-bold-duotone', title: 'We re-measure at 30 days', body: 'A re-baseline at T+30 shows movement, with 95% confidence intervals. We report measured change, not article volume.' },
 ]
 
