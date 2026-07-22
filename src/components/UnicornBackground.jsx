@@ -25,7 +25,7 @@ const UnicornBackground = () => {
     setMobile(!desktop)
 
     let active = true
-    let timer
+    let timer = null
     const load = () =>
       import('unicornstudio-react').then((mod) => {
         if (active) setScene(() => mod.default)
@@ -34,13 +34,20 @@ const UnicornBackground = () => {
     if (desktop) {
       load()
     } else {
-      const defer = () => { timer = setTimeout(load, 1200) }
-      if (document.readyState === 'complete') defer()
-      else window.addEventListener('load', defer, { once: true })
+      // Load at the first idle moment after hydration rather than waiting for the full
+      // load event — the scene appears within ~a second of first paint instead of
+      // popping in seconds later, while still yielding to the critical render path.
+      if (typeof window.requestIdleCallback === 'function') {
+        const idleId = window.requestIdleCallback(load, { timeout: 600 })
+        timer = { cancel: () => window.cancelIdleCallback(idleId) }
+      } else {
+        const t = setTimeout(load, 400)
+        timer = { cancel: () => clearTimeout(t) }
+      }
     }
     return () => {
       active = false
-      clearTimeout(timer)
+      if (timer) timer.cancel()
     }
   }, [])
 
@@ -69,8 +76,8 @@ const UnicornBackground = () => {
                 projectId="8G9qTlSBPboaCMb8UV64"
                 sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"
                 className="absolute w-full h-full left-0 top-0 -z-10"
-                scale={mobile ? 0.75 : 1}
-                dpi={mobile ? 1 : 1.5}
+                scale={1}
+                dpi={mobile ? Math.min(window.devicePixelRatio || 1, 2) : 1.5}
                 fps={mobile ? 30 : 60}
               />
             )}
