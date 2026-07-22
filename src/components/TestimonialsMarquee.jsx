@@ -23,7 +23,7 @@ const founders = [
 
 const TestimonialsMarquee = () => {
   return (
-    <section id="about" className="relative w-full py-24 lg:py-40 overflow-hidden z-20 border-t border-white/5">
+    <section id="about" className="relative w-full py-24 lg:py-40 overflow-hidden z-20 bg-indigo-950/20 border-t border-white/5">
       {/* Ambient backdrop */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
         <div className="absolute left-[6%] right-[6%] top-0 bottom-0 border-l border-r border-white/5 hidden lg:block"></div>

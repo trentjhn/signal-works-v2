@@ -30,7 +30,7 @@ const deliverables = [
 
 const Validation = ({ showCta = true }) => {
   return (
-    <section className="overflow-hidden lg:py-32 text-white w-full z-20 pt-24 pb-24 relative">
+    <section className="overflow-hidden lg:py-32 text-white w-full z-20 pt-24 pb-24 relative border-t border-white/5">
       {/* Background Grid Lines */}
       <div className="absolute inset-0 w-full h-full pointer-events-none hidden lg:block">
         <div className="absolute top-0 bottom-0 w-[1px] bg-white/5 left-[6%]"></div>
