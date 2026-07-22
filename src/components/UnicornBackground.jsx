@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const UnicornBackground = () => {
   // unicornstudio-react drives a WebGL scene and touches the DOM, so it cannot run
@@ -7,6 +7,8 @@ const UnicornBackground = () => {
   // looks finished even if the WebGL SDK is slow or fails to load.
   const [Scene, setScene] = useState(null)
   const [mobile, setMobile] = useState(false)
+  const sceneLayerRef = useRef(null)
+  const blobLayerRef = useRef(null)
 
   useEffect(() => {
     // Motion-off and data-saver clients keep the static gradient. Desktop loads the
@@ -51,13 +53,40 @@ const UnicornBackground = () => {
     }
   }, [])
 
+  // Scroll parallax: the particle scene drifts up at ~10% of scroll speed and the
+  // ambient blobs at ~5%, so the background reads as sitting deeper than the page.
+  // rAF-coalesced passive listener writing transform only — compositor-friendly.
+  // No library: one scrubbed transform doesn't earn a GSAP dependency.
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    let frame = null
+    const apply = () => {
+      frame = null
+      const y = window.scrollY
+      if (sceneLayerRef.current) sceneLayerRef.current.style.transform = `translate3d(0, ${y * -0.1}px, 0)`
+      if (blobLayerRef.current) blobLayerRef.current.style.transform = `translate3d(0, ${y * -0.05}px, 0)`
+    }
+    const onScroll = () => {
+      if (frame == null) frame = requestAnimationFrame(apply)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    apply()
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (frame != null) cancelAnimationFrame(frame)
+    }
+  }, [])
+
   return (
     <>
-      {/* Ambient Background */}
+      {/* Ambient Background. Base gradient stays put; the blobs parallax slowly. */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#0e0725] via-[#050211] to-black"></div>
-        <div className="absolute top-[-10%] right-[-10%] w-[600px] lg:w-[900px] h-[600px] lg:h-[900px] bg-purple-900/10 rounded-full blur-[80px] lg:blur-[120px]"></div>
-        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] lg:w-[700px] h-[500px] lg:h-[700px] bg-indigo-900/10 rounded-full blur-[80px] lg:blur-[120px]"></div>
+        <div ref={blobLayerRef} className="absolute inset-0">
+          <div className="absolute top-[-10%] right-[-10%] w-[600px] lg:w-[900px] h-[600px] lg:h-[900px] bg-purple-900/10 rounded-full blur-[80px] lg:blur-[120px]"></div>
+          <div className="absolute bottom-[-10%] left-[-10%] w-[500px] lg:w-[700px] h-[500px] lg:h-[700px] bg-indigo-900/10 rounded-full blur-[80px] lg:blur-[120px]"></div>
+        </div>
       </div>
 
       {/* Unicorn Studio Masked Background (client-only).
@@ -65,6 +94,7 @@ const UnicornBackground = () => {
           (the scene was composed for desktop aspect ratios). We scale the container 1.6x and
           shift it so the circle moves into the mobile frame. Desktop renders at natural size. */}
       <div
+        ref={sceneLayerRef}
         className="aura-background-component top-0 w-full h-screen z-10 saturate-0 pointer-events-none mix-blend-screen fixed"
         data-alpha-mask="80"
         style={{ maskImage: "linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)", WebkitMaskImage: "linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)" }}
