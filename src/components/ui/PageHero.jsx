@@ -3,7 +3,7 @@ import { CALENDLY } from '../../lib/constants'
 
 // Hero block for a content page. The <h1> carries the page's target query in real words
 // (prerendered, so engines read it). pt clears the fixed 100px navbar.
-function PageHero({ eyebrow, title, titleMuted, intro, ctaLabel = 'Book an intro call', ctaHref = CALENDLY }) {
+function PageHero({ eyebrow, title, titleMuted, intro, ctaLabel = 'Book an intro call', ctaHref = CALENDLY, children }) {
   return (
     <section className="relative w-full pt-[150px] md:pt-[180px] pb-20 lg:pb-28 px-6 lg:px-[6%] overflow-hidden">
       {/* Ambient framing to match the homepage sections: side rules + soft glow */}
@@ -43,6 +43,8 @@ function PageHero({ eyebrow, title, titleMuted, intro, ctaLabel = 'Book an intro
           <span>{ctaLabel}</span>
           <iconify-icon icon="solar:arrow-right-linear" class="text-base group-hover:translate-x-1 transition-transform duration-300"></iconify-icon>
         </a>
+
+        {children && <div className="mt-14 lg:mt-16">{children}</div>}
       </div>
     </section>
   )

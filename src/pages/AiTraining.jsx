@@ -1,6 +1,7 @@
 import React from 'react'
 import { Section, CardGrid } from '../components/ui/Prose'
 import PageHero from '../components/ui/PageHero'
+import PromptLift from '../components/ui/PromptLift'
 import StepRail from '../components/ui/StepRail'
 import CtaBand from '../components/ui/CtaBand'
 import RelatedLinks from '../components/ui/RelatedLinks'
@@ -84,7 +85,9 @@ function AiTraining() {
         intro="Hands-on training for teams that want real work out of Claude, ChatGPT, Gemini, and the tools around them. Half day or full day, in person or remote, built from the work your team already does."
         ctaLabel="Book a training call"
         ctaHref={CALENDLY}
-      />
+      >
+        <PromptLift />
+      </PageHero>
 
       {/* Tool tiles -> one competent team. */}
       <Section
