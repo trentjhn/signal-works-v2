@@ -207,6 +207,23 @@ export const seoRoutes = [
     ],
   },
   {
+    path: '/services/ai-training',
+    title: 'AI Training for Teams & Hands-On Workshops | SignalWorks',
+    description:
+      'Hands-on AI training for teams: Claude, ChatGPT, Gemini, Copilot, and AI agents, taught in plain language through your own workflows. Half-day and full-day workshops, in person or remote.',
+    canonical: `${BASE}/services/ai-training`,
+    jsonLd: [
+      serviceNode({
+        name: 'AI Training',
+        description:
+          'Hands-on AI training workshops for teams: prompting, tool fluency across Claude, ChatGPT, Gemini, and Copilot, judgment about AI output, and AI agents explained in plain language. Curriculum built from the client\u2019s own workflows. Half-day and full-day formats, in person or remote, with a recorded session and written follow-up.',
+        serviceType: 'AI training workshops for teams',
+        path: '/services/ai-training',
+      }),
+      orgNode,
+    ],
+  },
+  {
     path: '/ai-agency-los-angeles',
     title: 'AI Automation Agency in Los Angeles | SignalWorks',
     description:

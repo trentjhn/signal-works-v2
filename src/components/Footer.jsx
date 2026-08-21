@@ -7,6 +7,7 @@ const serviceLinks = [
   { to: '/services/knowledge-systems', label: 'Knowledge Systems' },
   { to: '/services/ai-search-visibility', label: 'AI Search Visibility' },
   { to: '/services/ai-security-governance', label: 'AI Security and Governance' },
+  { to: '/services/ai-training', label: 'AI Training' },
 ]
 
 const companyLinks = [

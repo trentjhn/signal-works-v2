@@ -10,6 +10,7 @@ const services = [
   { to: '/services/knowledge-systems', label: 'Knowledge Systems', desc: 'Internal AI search' },
   { to: '/services/ai-search-visibility', label: 'AI Search Visibility', desc: 'Answer engine optimization' },
   { to: '/services/ai-security-governance', label: 'AI Security & Governance', desc: 'Audits and compliance' },
+  { to: '/services/ai-training', label: 'AI Training', desc: 'Hands-on team workshops' },
 ]
 
 const Navbar = () => {

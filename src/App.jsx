@@ -6,6 +6,7 @@ import AiAutomations from './pages/AiAutomations'
 import CustomAiSoftware from './pages/CustomAiSoftware'
 import KnowledgeSystems from './pages/KnowledgeSystems'
 import AiSecurityGovernance from './pages/AiSecurityGovernance'
+import AiTraining from './pages/AiTraining'
 import AiSearchVisibility from './pages/AiSearchVisibility'
 import AiAgencyLosAngeles from './pages/AiAgencyLosAngeles'
 import About from './pages/About'
@@ -26,6 +27,7 @@ function App() {
         <Route path="/services/knowledge-systems" element={<KnowledgeSystems />} />
         <Route path="/services/ai-security-governance" element={<AiSecurityGovernance />} />
         <Route path="/services/ai-search-visibility" element={<AiSearchVisibility />} />
+        <Route path="/services/ai-training" element={<AiTraining />} />
         <Route path="/ai-agency-los-angeles" element={<AiAgencyLosAngeles />} />
         <Route path="/approach" element={<Approach />} />
         <Route path="/work" element={<Work />} />
