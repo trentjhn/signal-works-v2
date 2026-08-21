@@ -90,7 +90,7 @@ function KnowledgeSystems() {
         links={[
           { to: '/services/custom-ai-software', label: 'Custom AI Software' },
           { to: '/approach', label: 'Our Approach' },
-          { to: '/services/ai-automations', label: 'AI Automations' },
+          { to: '/services/ai-training', label: 'AI Training' },
         ]}
       />
     </>

@@ -4,7 +4,9 @@ import PageHero from '../components/ui/PageHero'
 import StepRail from '../components/ui/StepRail'
 import CtaBand from '../components/ui/CtaBand'
 import RelatedLinks from '../components/ui/RelatedLinks'
+import FaqList from '../components/ui/FaqList'
 import { CALENDLY } from '../lib/constants'
+import { trainingFaq } from '../seo'
 
 // The tools row mirrors the KnowledgeSystems sources-to-brain motif:
 // scattered tools on the left, one competent team on the right.
@@ -137,6 +139,10 @@ function AiTraining() {
           watched AI do an hour of their own week in minutes. Skepticism usually survives a demo. It
           rarely survives that.
         </p>
+      </Section>
+
+      <Section title="Common questions" beamDelay={1}>
+        <FaqList items={trainingFaq} />
       </Section>
 
       <CtaBand

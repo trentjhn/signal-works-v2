@@ -70,7 +70,7 @@ function AiAutomations() {
         links={[
           { to: '/services/custom-ai-software', label: 'Custom AI Software' },
           { to: '/services/knowledge-systems', label: 'Knowledge Systems' },
-          { to: '/work', label: 'Our Work' },
+          { to: '/services/ai-training', label: 'AI Training' },
         ]}
       />
     </>

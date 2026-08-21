@@ -44,6 +44,7 @@ const orgNode = {
     'AI knowledge systems',
     'AI security and governance',
     'Custom software development',
+    'AI training for teams',
   ],
   founder: [
     { '@type': 'Person', name: 'Trenton Johnson', jobTitle: 'Co-founder', alumniOf: 'Yale University' },
@@ -98,6 +99,35 @@ export const aeoFaq = [
   {
     q: 'How long does it take to see results?',
     a: 'Entity and content signals take time to propagate into the engines’ answers. We re-baseline at 30 days as the first checkpoint, and changes often continue past that as the engines update.',
+  },
+]
+
+// Training FAQ — shared between the visible FaqList on /services/ai-training and the
+// FAQPage JSON-LD in that route's entry, same pattern as aeoFaq above.
+export const trainingFaq = [
+  {
+    q: "How long is a training session?",
+    a: "Half day or full day. The scoping call decides which fits: a half day covers the core working skills, a full day adds deeper practice on your own workflows and a segment on agents. Both end with a prompt library your team built itself.",
+  },
+  {
+    q: "Remote or in person?",
+    a: "Both. In person around Los Angeles and the Bay Area, remote anywhere. The session is hands-on either way: everyone works on their own machine, on their own tasks.",
+  },
+  {
+    q: "Do our people need to be technical?",
+    a: "No. Everything is taught in plain language and grounded in examples from your own company. Mixed rooms are the normal case: power users leave with sharper technique, and beginners leave past the blank-page problem.",
+  },
+  {
+    q: "Which tools do you cover?",
+    a: "Claude, Claude Code, Cowork, ChatGPT, Gemini, and Copilot, weighted toward whatever your team already pays for. Tool choice is part of the scoping call.",
+  },
+  {
+    q: "How many people can join?",
+    a: "It works best between five and twenty-five. Larger groups split into two sessions, so everyone gets hands-on time instead of watching.",
+  },
+  {
+    q: "What do we keep afterward?",
+    a: "A recording of the session, the prompt library the room built, and a written Q&A document answering everything that came up, including the questions we went away to check.",
   },
 ]
 
@@ -220,6 +250,15 @@ export const seoRoutes = [
         serviceType: 'AI training workshops for teams',
         path: '/services/ai-training',
       }),
+      {
+        '@type': 'FAQPage',
+        '@id': `${BASE}/services/ai-training/#faq`,
+        mainEntity: trainingFaq.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      },
       orgNode,
     ],
   },
