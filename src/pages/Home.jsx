@@ -1,5 +1,6 @@
 import React from 'react'
 import Hero from '../components/Hero'
+import TrainingSpotlight from '../components/TrainingSpotlight'
 import Features from '../components/Features'
 import AeoFeature from '../components/AeoFeature'
 import Validation from '../components/Validation'
@@ -19,6 +20,9 @@ function Home() {
       {/* 1. Hero with marquee */}
       <Hero />
       <SectionDivider duration={9} />
+      {/* 1.2 Training spotlight — top of the funnel leads (positioning call, 2026-08-22) */}
+      <TrainingSpotlight />
+      <SectionDivider delay={0.8} duration={10} />
       {/* 1.5 AEO interlude — strongest line from the old site, breakout treatment */}
       <AeoCallout />
       <SectionDivider delay={1.5} duration={10} />
